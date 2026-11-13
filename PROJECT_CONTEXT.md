@@ -484,7 +484,7 @@
 - 페이지 이동: React Router(react-router-dom). 주소 / · /test · /result?a=답4자리(&m=gift) · /products · /cart · /checkout · /complete · /brand · /help(#faq·#inquiry·#lookup) (출처: 요청 2026-11-13)
 - 데이터 보관: 장바구니·선물 모드·테스트 여부·모의 주문을 브라우저 localStorage에 저장. 결과 링크는 답을 주소에 담음 (출처: 요청 2026-11-13)
 - 폴더 구조: src/data(향·질문·이미지) · src/store(상태) · src/components(공통) · src/pages(페이지별 jsx+css). 이미지는 src/assets/page*/의 JPG를 파일 이름 속 IMG-ID로 찾아 씀 (출처: 요청 2026-11-13)
-- 배포 방법: [미정] — 7단계 배포에서 다시 결정. ONSUM 폴더는 Git 원격 저장소와 연결돼 있음 (출처: 답변)
+- 배포 방법: GitHub Pages (GitHub Actions로 main에 push하면 자동 배포, `.github/workflows/deploy.yml`). 주소 https://beryls1201-ux.github.io/ONSUM/ · 빌드 base `/ONSUM/` · 새로고침 대응으로 404.html에 index.html 복사 (출처: 요청 2026-11-13)
 - 출시 전 확정 항목(모의 동작이라도 화면 문구에 필요): 주문 비밀번호 규칙, 개인정보 수집 항목·이용 목적·보유 기간과 동의 전문, 배송 소요일·교환/반품 신청 기한·비용 → [미정] (출처: 04). 개인정보 동의 문구는 실제 운영 전 전문가 확인 필요 (출처: 04)
 
 ## 9. 아직 정하지 않은 사항
@@ -546,7 +546,7 @@
 ### 7단계 · 배포
 | # | 항목 | 구분 | 무엇을 정해야 하나 | 출처 |
 | --- | --- | --- | --- | --- |
-| 7-1 | 배포 방법 | 사용자 미정 | Vercel · Netlify · GitHub Pages 등 | 답변 |
+| 7-1 | 배포 방법 | 확정 → 8 (GitHub Pages) | Vercel · Netlify · GitHub Pages 등 | 답변 |
 
 ## 제작 진행 규칙
 AI는 아래 순서대로 한 단계씩만 진행합니다. 단계가 끝나면 결과를 보여 주고 질문 기능으로 '승인 · 다음 단계로 / 수정 요청 / 이 단계 다시 하기'를 묻습니다. 승인 전에는 다음 단계로 넘어가지 않습니다.
