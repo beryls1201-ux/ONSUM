@@ -5,6 +5,7 @@ import Footer from '../components/Footer.jsx'
 import Icon from '../components/Icon.jsx'
 import Photo from '../components/Photo.jsx'
 import TestHeader from '../components/TestHeader.jsx'
+import Tilt from '../components/Tilt.jsx'
 import useToast from '../components/useToast.js'
 import { decodeAnswers, rankScents, summarize } from '../data/questions.js'
 import { PRICE, scentNotes, scentTitle, won } from '../data/scents.js'
@@ -134,11 +135,11 @@ export default function Result() {
             </section>
 
             {/* 1위 카드 */}
-            <article aria-label="추천 1위" className="p2r-first">
-              <Photo id={first.img} className="p2r-first-img" fallback={first.color} label={`${first.img} · ${first.name} · 560×380`} />
+            <article aria-label="추천 1위" className="p2r-first photo-zoom-host">
+              <Photo id={first.img} className="p2r-first-img photo-zoom" fallback={first.color} label={`${first.img} · ${first.name} · 560×380`} />
               <div className="p2r-first-body">
                 <div className="p2r-rank-row">
-                  <span className="p2r-rank">
+                  <span className="p2r-rank p2r-rank-pop">
                     <span className="num">1</span>위
                   </span>
                   <Dot color={first.color} size={20} />
@@ -176,14 +177,14 @@ export default function Result() {
             {/* 2·3위 카드 */}
             <div className="p2r-rest">
               {[second, third].map((s, i) => (
-                <article key={s.id} aria-label={`추천 ${i + 2}위`} className="p2r-card on-linen">
+                <Tilt key={s.id} as="article" max={4} lift={4} aria-label={`추천 ${i + 2}위`} className="p2r-card on-linen photo-zoom-host">
                   <div className="p2r-rank-row">
                     <span className="p2r-rank p2r-rank-sm">
                       <span className="num">{i + 2}</span>위
                     </span>
                     <Dot color={s.color} size={18} />
                   </div>
-                  <Photo id={s.img} className="p2r-card-img" fallback={s.color} label={`${s.img} · 548×200`} />
+                  <Photo id={s.img} className="p2r-card-img photo-zoom" fallback={s.color} label={`${s.img} · 548×200`} />
                   <div className="p2r-card-text">
                     <h3 className="p2r-card-name">{scentTitle(s)}</h3>
                     <p className="p2r-card-line">{s.line}</p>
@@ -197,7 +198,7 @@ export default function Result() {
                       자세히 보기
                     </button>
                   </div>
-                </article>
+                </Tilt>
               ))}
             </div>
 

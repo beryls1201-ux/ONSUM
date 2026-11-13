@@ -304,7 +304,7 @@
   font-weight: 500;
   text-decoration: underline;
   text-underline-offset: 4px;
-  cursor: pointer;
+  cursor: var(--cursor-pointer);
 }
 
 .p2r-textlink:hover {
@@ -385,4 +385,34 @@
 .p2r-status-empty {
   margin: 0;
   min-height: 24px;
+}
+
+/* 2·3위 카드: 마우스를 올리면 옅은 그림자 (4px 떠오름·최대 4도 기울임은 Tilt가 처리) */
+.p2r-card:hover {
+  box-shadow: var(--shadow-lift);
+}
+
+@media (hover: none) {
+  .p2r-card:hover {
+    box-shadow: none;
+  }
+}
+
+/* 1위 배지: 1위 카드가 떠오른 직후 한 번 톡 튀어 오름 */
+.p2r-rank-pop {
+  animation: p2rPop 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) 0.62s both;
+}
+
+@keyframes p2rPop {
+  0% {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.18);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
 }

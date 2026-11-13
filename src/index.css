@@ -26,6 +26,10 @@
   --shadow-addbar: 0 6px 18px -10px rgba(46, 42, 38, 0.5);
   --shadow-focus: 0 0 0 3px rgba(79, 107, 74, 0.18);
   --shadow-error: 0 0 0 3px rgba(242, 166, 90, 0.25);
+
+  /* 마우스 포인터: 모서리가 둥근 웜 차콜 화살표(크림 테두리), 누를 수 있는 곳에서는 세이지 딥 */
+  --cursor-default: url('/cursor/cursor-default.svg') 5 4, auto;
+  --cursor-pointer: url('/cursor/cursor-pointer.svg') 5 4, pointer;
 }
 
 *,
@@ -41,6 +45,7 @@ body {
 }
 
 body {
+  cursor: var(--cursor-default);
   background: var(--surface-cream);
   color: var(--ink);
   font-family: var(--font-sans);
@@ -54,6 +59,21 @@ img {
 
 a {
   color: var(--ink);
+  cursor: var(--cursor-pointer);
+}
+
+button,
+select,
+label,
+[role="tab"],
+input[type="checkbox"],
+input[type="radio"] {
+  cursor: var(--cursor-pointer);
+}
+
+input:not([type="checkbox"]):not([type="radio"]),
+textarea {
+  cursor: text;
 }
 
 a:hover {
@@ -167,7 +187,7 @@ textarea {
   font-size: 16px;
   font-weight: 500;
   text-decoration: none;
-  cursor: pointer;
+  cursor: var(--cursor-pointer);
   white-space: nowrap;
 }
 
@@ -227,7 +247,7 @@ textarea {
   border-radius: 999px;
   background: transparent;
   color: var(--ink);
-  cursor: pointer;
+  cursor: var(--cursor-pointer);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -381,7 +401,7 @@ textarea.input {
   align-items: center;
   gap: 12px;
   min-height: 44px;
-  cursor: pointer;
+  cursor: var(--cursor-pointer);
   font-size: 15px;
 }
 
@@ -498,4 +518,85 @@ textarea.input {
   .spotlight-glow {
     display: none;
   }
+}
+
+/* 향 사진: 카드에 마우스를 올리면 사진만 액자 안에서 천천히 다가옴 (결과 1~3위, 향 소개 카드) */
+.photo-zoom .photo > img,
+.photo-zoom.photo > img {
+  transition: transform 0.6s ease;
+}
+
+.photo-zoom-host:hover .photo-zoom > img,
+.photo-zoom-host:hover .photo-zoom.photo > img {
+  transform: scale(1.05);
+}
+
+@media (hover: none) {
+  .photo-zoom-host:hover .photo-zoom > img {
+    transform: none;
+  }
+}
+
+/* 부드럽게 펼침/접힘 (FAQ 답, 선물 옵션) */
+.collapse {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition: grid-template-rows 0.3s ease, opacity 0.3s ease;
+}
+
+.collapse.is-open {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+.collapse-inner {
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* 숨결 점: 마우스를 살짝 늦게 따라오는 살구 점 (CursorDot) */
+.cursor-dot {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.cursor-dot.is-on {
+  opacity: 1;
+}
+
+.cursor-dot.is-hidden {
+  opacity: 0;
+}
+
+.cursor-dot > span {
+  position: absolute;
+  left: -4px;
+  top: -4px;
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--apricot);
+  border: 1.5px solid transparent;
+  transition: left 0.25s ease, top 0.25s ease, width 0.25s ease, height 0.25s ease, background-color 0.25s ease, border-color 0.25s ease, transform 0.15s ease;
+}
+
+/* 누를 수 있는 곳 위: 안이 빈 세이지 딥 원으로 커짐 */
+.cursor-dot.is-link > span {
+  left: -18px;
+  top: -18px;
+  width: 36px;
+  height: 36px;
+  background: transparent;
+  border-color: var(--sage-deep);
+}
+
+/* 누를 때 살짝 작아졌다 돌아옴 */
+.cursor-dot.is-down > span {
+  transform: scale(0.85);
 }

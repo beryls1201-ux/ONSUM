@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { Navigate, Outlet, Route, Routes, useLocation } from 'react-router-dom'
 import Header from './components/Header.jsx'
+import CursorDot from './components/CursorDot.jsx'
 import Footer from './components/Footer.jsx'
 import Main from './pages/Main.jsx'
 import Test from './pages/Test.jsx'
@@ -50,6 +51,7 @@ export default function App() {
   return (
     <>
       <ScrollManager />
+      <CursorDot />
       <Routes>
         <Route element={<SiteLayout />}>
           <Route path="/" element={<Main />} />

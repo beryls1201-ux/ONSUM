@@ -119,7 +119,9 @@ export default function Checkout() {
               </button>
             </div>
 
-            {f.gift && (
+            {/* '선물로 보내기'를 켜면 메시지 카드·포장 영역이 부드럽게 펼쳐짐 */}
+            <div className={`collapse p4c-gift-collapse${f.gift ? ' is-open' : ''}`} inert={!f.gift}>
+              <div className="collapse-inner">
               <div className="p4c-gift-body">
                 <div className="p4c-card-col">
                   <p className="p4c-card-cap">무료 메시지 카드 · 문구 예시</p>
@@ -166,7 +168,8 @@ export default function Checkout() {
                   </label>
                 </div>
               </div>
-            )}
+              </div>
+            </div>
           </section>
 
           {/* P4-S3 결제: 주문자 정보 */}

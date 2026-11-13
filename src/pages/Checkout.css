@@ -45,7 +45,7 @@
   border: 0;
   border-radius: 999px;
   padding: 0;
-  cursor: pointer;
+  cursor: var(--cursor-pointer);
   background: var(--check-line);
   transition: background-color 0.2s ease;
 }
@@ -76,6 +76,16 @@
   flex-wrap: wrap;
   align-items: flex-start;
   padding-top: 4px;
+}
+
+/* 접혀 있을 때는 제목 아래 간격(20px)까지 함께 접음 */
+.p4c-gift-collapse {
+  margin-top: -20px;
+  transition: grid-template-rows 0.35s ease, opacity 0.35s ease, margin-top 0.35s ease;
+}
+
+.p4c-gift-collapse.is-open {
+  margin-top: 0;
 }
 
 /* 메시지 카드 미리보기 */
@@ -179,7 +189,7 @@
   padding: 16px;
   border-radius: 16px;
   background: var(--surface-cream);
-  cursor: pointer;
+  cursor: var(--cursor-pointer);
 }
 
 .p4c-wrap .checkbox {
@@ -258,7 +268,7 @@
   padding: 0 18px;
   border-radius: 16px;
   background: var(--surface-cream);
-  cursor: pointer;
+  cursor: var(--cursor-pointer);
   font-size: 15px;
   font-weight: 500;
   border: 2px solid transparent;

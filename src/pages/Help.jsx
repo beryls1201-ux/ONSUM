@@ -88,7 +88,12 @@ export default function Help() {
                     <Icon name="chevUp" size={20} className={`p6-chev${on ? '' : ' is-closed'}`} />
                   </button>
                 </h2>
-                {on && <p className="p6-faq-a">{a}</p>}
+                {/* 답이 부드럽게 펼쳐지고 접힘. 접혀 있을 때는 inert로 읽기·포커스 제외 */}
+                <div className={`collapse${on ? ' is-open' : ''}`} inert={!on}>
+                  <div className="collapse-inner">
+                    <p className="p6-faq-a">{a}</p>
+                  </div>
+                </div>
               </div>
             )
           })}

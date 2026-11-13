@@ -203,7 +203,7 @@
   border-radius: 20px;
   background: var(--surface-linen);
   color: var(--ink);
-  cursor: pointer;
+  cursor: var(--cursor-pointer);
   border: 2px solid transparent;
   opacity: 0.75;
   transition: border-color 0.3s ease, opacity 0.3s ease;

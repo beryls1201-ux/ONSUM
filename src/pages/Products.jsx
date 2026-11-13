@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useLayoutEffect, useRef, useState } from 'react'
 import { Link, useLocation, useNavigate, useSearchParams } from 'react-router-dom'
 import Dot from '../components/Dot.jsx'
 import Icon from '../components/Icon.jsx'
@@ -35,6 +35,51 @@ function AddBar({ onAdd }) {
         <span>{added ? '담았어요' : '장바구니 담기'}</span>
       </button>
     </Magnet>
+  )
+}
+
+// P3-B1~B4 계절 탭: 선택 표시(차콜 알약)가 고른 탭으로 미끄러지듯 이동
+function SeasonTabs({ season, onPick }) {
+  const refs = useRef({})
+  const [pill, setPill] = useState(null) // { left, width }
+  const [ready, setReady] = useState(false)
+
+  useLayoutEffect(() => {
+    const measure = () => {
+      const el = refs.current[season]
+      if (el) setPill({ left: el.offsetLeft, width: el.offsetWidth })
+    }
+    measure()
+    // 웹 글꼴이 늦게 들어와 탭 폭이 바뀌어도 맞춤
+    document.fonts?.ready.then(measure)
+    window.addEventListener('resize', measure)
+    // 처음 그릴 때는 제자리에 두고, 그다음부터 미끄러지게
+    const t = requestAnimationFrame(() => setReady(true))
+    return () => {
+      cancelAnimationFrame(t)
+      window.removeEventListener('resize', measure)
+    }
+  }, [season])
+
+  return (
+    <div role="tablist" aria-label="계절" className="p3-tabs">
+      {pill && <span aria-hidden="true" className={`p3-tab-pill${ready ? ' is-ready' : ''}`} style={{ left: pill.left, width: pill.width }} />}
+      {SEASONS.map((k) => (
+        <button
+          key={k}
+          ref={(el) => {
+            refs.current[k] = el
+          }}
+          type="button"
+          role="tab"
+          aria-selected={k === season}
+          className={`p3-tab${k === season ? ' is-on' : ''}`}
+          onClick={() => onPick(k)}
+        >
+          {k}
+        </button>
+      ))}
+    </div>
   )
 }
 
@@ -121,20 +166,7 @@ function ProductsView() {
         </div>
 
         <div className="p3-tabs-wrap">
-          <div role="tablist" aria-label="계절" className="p3-tabs">
-            {SEASONS.map((k) => (
-              <button
-                key={k}
-                type="button"
-                role="tab"
-                aria-selected={k === season}
-                className={`p3-tab${k === season ? ' is-on' : ''}`}
-                onClick={() => pickSeason(k)}
-              >
-                {k}
-              </button>
-            ))}
-          </div>
+          <SeasonTabs season={season} onPick={pickSeason} />
           <Photo
             key={season}
             id={SEASON_PHOTO[season]}
@@ -149,7 +181,7 @@ function ProductsView() {
           {list.map((it, i) => {
             const on = sel === i
             return (
-              <article key={it.id} className={`p3-card p3-fade${on ? ' is-on' : ''}`}>
+              <article key={it.id} className={`p3-card p3-fade photo-zoom-host${on ? ' is-on' : ''}`}>
                 <label className="p3-radio">
                   <input type="radio" name="scent" checked={on} onChange={() => {
                       setSel(i)
@@ -162,7 +194,7 @@ function ProductsView() {
                     <Dot color={it.color} />
                   </span>
                 </label>
-                <Photo id={it.img} className="p3-card-img" fallback={it.color} label={`${it.img} · 344×260`}>
+                <Photo id={it.img} className="p3-card-img photo-zoom" fallback={it.color} label={`${it.img} · 344×260`}>
                   <AddBar onAdd={() => add(it.id, 1)} />
                 </Photo>
                 <div className="p3-card-text">

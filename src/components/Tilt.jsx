@@ -11,7 +11,7 @@ function canMove() {
 // 마우스 위치에 따라 카드가 은은하게 기울어짐 (반짝이·색 막 없음)
 // max: 최대 기울기(도) · lift: 마우스를 올렸을 때 함께 떠오르는 높이(px)
 // as: 안쪽 요소 태그 · '움직임 줄이기' 설정이나 터치 화면에서는 기울지 않음
-export default function Tilt({ children, max = 6, lift = 0, as: Tag = 'div', className = '', style }) {
+export default function Tilt({ children, max = 6, lift = 0, as: Tag = 'div', className = '', style, ...rest }) {
   const ref = useRef(null)
   const [rot, setRot] = useState({ x: 0, y: 0, on: false })
 
@@ -28,6 +28,7 @@ export default function Tilt({ children, max = 6, lift = 0, as: Tag = 'div', cla
   return (
     <div style={{ perspective: 900, display: 'flex', flexDirection: 'column' }}>
       <Tag
+        {...rest}
         ref={ref}
         className={className}
         onMouseMove={onMove}
