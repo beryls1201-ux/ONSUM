@@ -1,0 +1,388 @@
+/* P2-S2 결과 화면 */
+.p2r-loading {
+  min-height: 640px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  text-align: center;
+}
+
+.p2r-glow {
+  position: relative;
+  width: 200px;
+  height: 200px;
+}
+
+.p2r-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(242, 166, 90, 0.38) 0%, rgba(242, 166, 90, 0.12) 55%, rgba(242, 166, 90, 0) 72%);
+  animation: p2rGlow 1.8s ease-out infinite;
+}
+
+.p2r-ring.r2 {
+  animation-delay: 0.3s;
+}
+
+.p2r-ring.r3 {
+  animation-delay: 0.6s;
+}
+
+@keyframes p2rGlow {
+  0% {
+    transform: scale(0.35);
+    opacity: 0;
+  }
+  35% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.25);
+    opacity: 0;
+  }
+}
+
+.p2r-core {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 14px;
+  height: 14px;
+  margin: -7px 0 0 -7px;
+  border-radius: 999px;
+  background: var(--apricot);
+}
+
+.p2r-loading-text {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.p2r-loading-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 32px;
+  line-height: 1.4;
+  letter-spacing: -0.015em;
+}
+
+.p2r-loading-sub {
+  margin: 0;
+  font-size: 16px;
+  color: var(--ink-subtle);
+}
+
+.p2r-section {
+  padding-top: 64px;
+  padding-bottom: 128px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+/* 결과가 차례대로 떠오름: 제목 → 요약 → 1위 → 2·3위 → 버튼 (0.1~0.12초 간격) */
+.p2r-section > * {
+  animation: p2rUp 0.5s ease both;
+}
+
+.p2r-section > :nth-child(2) {
+  animation-delay: 0.12s;
+}
+
+.p2r-section > :nth-child(3) {
+  animation-delay: 0.28s;
+}
+
+.p2r-section > :nth-child(4) > :nth-child(1) {
+  animation: p2rUp 0.5s ease 0.44s both;
+}
+
+.p2r-section > :nth-child(4) > :nth-child(2) {
+  animation: p2rUp 0.5s ease 0.54s both;
+}
+
+.p2r-section > :nth-child(4) {
+  animation: none;
+}
+
+.p2r-section > :nth-child(5) {
+  animation-delay: 0.68s;
+}
+
+@keyframes p2rUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* 나의 향 이야기 */
+.p2r-story {
+  background: var(--surface-linen);
+  border-radius: 24px;
+  padding: 32px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.p2r-story-title {
+  margin: 0 0 8px;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 1.4;
+  letter-spacing: -0.015em;
+}
+
+.p2r-dl {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.p2r-row {
+  display: grid;
+  grid-template-columns: 120px minmax(0, 1fr);
+  gap: 24px;
+  align-items: center;
+  padding: 18px 0;
+  border-top: 1px solid var(--line);
+}
+
+.p2r-row.is-last {
+  padding-bottom: 4px;
+}
+
+.p2r-row dt {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink-muted);
+}
+
+.p2r-row dd {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.p2r-val {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.p2r-chips {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.p2r-chip {
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: var(--surface-cream);
+  font-size: 14px;
+}
+
+/* 1위 카드 */
+.p2r-first {
+  background: var(--surface-linen);
+  border-radius: 24px;
+  padding: 20px;
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+
+.p2r-first-img {
+  flex: 0 1 560px;
+  min-width: min(100%, 320px);
+  aspect-ratio: 560 / 380;
+  border-radius: 16px;
+}
+
+.p2r-first-body {
+  flex: 1 1 400px;
+  min-width: 0;
+  padding: 16px 20px 16px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.p2r-rank-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.p2r-rank {
+  height: 30px;
+  padding: 0 14px;
+  border-radius: 999px;
+  background: var(--apricot);
+  color: var(--ink);
+  display: inline-flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.p2r-rank-sm {
+  height: 28px;
+  padding: 0 12px;
+  font-size: 13px;
+}
+
+.p2r-first-text {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.p2r-first-name {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 34px;
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+}
+
+.p2r-first-line {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.p2r-notes {
+  margin: 0;
+  font-size: 14px;
+  color: var(--ink-muted);
+}
+
+.p2r-easy {
+  padding: 16px 20px;
+  gap: 6px;
+  font-size: 14px;
+}
+
+.p2r-price {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.p2r-first-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: auto;
+}
+
+.p2r-textlink {
+  display: inline-flex;
+  align-items: center;
+  height: 56px;
+  padding: 0 8px;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  cursor: pointer;
+}
+
+.p2r-textlink:hover {
+  color: var(--sage-deep);
+}
+
+/* 2·3위 */
+.p2r-rest {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(460px, 100%), 1fr));
+  gap: 24px;
+}
+
+.p2r-card {
+  background: var(--surface-linen);
+  border-radius: 24px;
+  padding: 20px 20px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.p2r-card .p2r-rank-row {
+  gap: 10px;
+}
+
+.p2r-card-img {
+  width: 100%;
+  aspect-ratio: 548 / 200;
+  border-radius: 16px;
+}
+
+.p2r-card-text {
+  padding: 0 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.p2r-card-name {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 1.35;
+  letter-spacing: -0.015em;
+}
+
+.p2r-card-line {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.p2r-card-foot {
+  padding: 0 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.p2r-again {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding-top: 8px;
+}
+
+.p2r-again-buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.p2r-status-empty {
+  margin: 0;
+  min-height: 24px;
+}

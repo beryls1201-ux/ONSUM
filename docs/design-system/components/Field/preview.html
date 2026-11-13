@@ -1,0 +1,37 @@
+<!-- @dsCard group="Forms" height=330 width=1000 subtitle="입력칸 · 선택 · 체크 · 라디오 · 토글 · 수량" -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Quicksand:wght@500;600&display=swap">
+<style>
+.wrap{font-family:var(--font-sans);color:var(--ink);background:var(--surface-linen);padding:28px;display:flex;flex-direction:column;gap:24px}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.f{display:flex;flex-direction:column;gap:8px}
+label.t{font-size:14px;font-weight:500}
+.in{height:var(--control-input);padding:0 16px;border-radius:var(--radius-xs);border:1px solid var(--line-strong);background:var(--surface-cream);color:var(--ink);font:400 16px var(--font-sans);box-sizing:border-box}
+.in.focus{border-color:var(--sage-deep);box-shadow:var(--shadow-focus)}
+.in.err{border:2px solid var(--apricot);box-shadow:var(--shadow-error)}
+.err-msg{display:inline-flex;align-items:center;gap:8px;align-self:flex-start;padding:6px 14px 6px 6px;border-radius:var(--radius-pill);background:var(--apricot-tint);border:1px solid var(--apricot);font-size:13px;font-weight:500}
+.err-msg i{font-style:normal;width:20px;height:20px;border-radius:var(--radius-pill);background:var(--apricot);display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:700}
+.row{display:flex;gap:28px;align-items:center;flex-wrap:wrap;font-size:15px}
+.row label{display:flex;align-items:center;gap:10px;min-height:44px}
+input[type=checkbox],input[type=radio]{width:20px;height:20px;margin:0;accent-color:var(--sage-deep)}
+.tog{position:relative;width:56px;height:32px;border-radius:var(--radius-pill);background:var(--sage-deep);border:0}
+.tog.off{background:var(--check-line)}
+.tog span{position:absolute;top:4px;left:28px;width:24px;height:24px;border-radius:var(--radius-pill);background:var(--surface-cream)}
+.tog.off span{left:4px}
+.qty{display:inline-flex;align-items:center;gap:4px;height:var(--control-md);padding:0 4px;border-radius:var(--radius-pill);background:var(--surface-cream)}
+.qty button{width:40px;height:40px;border:0;border-radius:var(--radius-pill);background:transparent;color:var(--ink);font-size:18px}
+.qty b{min-width:28px;text-align:center;font:600 17px var(--font-num)}
+</style>
+<div class="wrap">
+<div class="grid">
+<div class="f"><label class="t" for="a">주문자 이름</label><input id="a" class="in" value=""></div>
+<div class="f"><label class="t" for="b">연락처</label><input id="b" class="in focus" value="010"></div>
+<div class="f"><label class="t" for="c">상세 주소</label><input id="c" class="in err" value=""><span class="err-msg" role="alert"><i>!</i>배송지의 상세 주소를 입력해주세요.</span></div>
+</div>
+<div class="row">
+<label><input type="checkbox" checked> 개인정보 수집·이용 동의 <b style="color:var(--sage-deep)">(필수)</b></label>
+<label><input type="radio" name="p" checked> 신용카드</label>
+<label><button class="tog" type="button" role="switch" aria-checked="true" aria-label="선물로 보내기"><span></span></button> 선물로 보내기</label>
+<label><button class="tog off" type="button" role="switch" aria-checked="false" aria-label="꺼짐"><span></span></button> 꺼짐</label>
+<span class="qty"><button type="button" aria-label="수량 줄이기">−</button><b>1</b><button type="button" aria-label="수량 늘리기">+</button></span>
+</div>
+</div>

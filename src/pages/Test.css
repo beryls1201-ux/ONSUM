@@ -1,0 +1,204 @@
+/* P2-S1 질문 단계 */
+.p2-section {
+  padding-top: 64px;
+  padding-bottom: 128px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.p2-progress {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 360px;
+}
+
+.p2-progress-label {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--ink-muted);
+}
+
+.p2-progress-cur {
+  color: var(--ink);
+}
+
+.p2-bar {
+  height: 6px;
+  border-radius: 999px;
+  background: var(--line-soft);
+  overflow: hidden;
+}
+
+.p2-bar-fill {
+  height: 100%;
+  background: var(--apricot);
+  border-radius: 999px;
+  transition: width 0.4s ease;
+}
+
+.p2-q {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  animation: p2In 0.35s ease both;
+}
+
+@keyframes p2In {
+  from {
+    opacity: 0;
+    transform: translateX(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.p2-title {
+  font-size: 48px;
+  line-height: 1.32;
+  white-space: pre-line;
+}
+
+.p2-guide {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--ink-subtle);
+}
+
+.p2-fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+
+.p2-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(250px, 100%), 1fr));
+  gap: 24px;
+  max-width: 1072px;
+}
+
+.p2-opt {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 250 / 240;
+  padding: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 3px solid transparent;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.p2-opt:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px -20px rgba(46, 42, 38, 0.4);
+}
+
+.p2-opt.is-selected {
+  border-color: var(--sage-deep);
+}
+
+.p2-opt-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.p2-opt-ph {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(247, 242, 234, 0.85);
+  color: var(--ink-muted);
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.p2-opt-shade {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 45%;
+  background: linear-gradient(180deg, rgba(46, 42, 38, 0) 0%, rgba(46, 42, 38, 0.55) 100%);
+}
+
+/* 고르는 순간 누른 자리에서 옅은 살구빛 물결이 한 번 퍼지고 사라짐 ('향이 퍼진다'는 의미) */
+.p2-ripple {
+  position: absolute;
+  width: 360px;
+  height: 360px;
+  margin: -180px 0 0 -180px;
+  border-radius: 999px;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(242, 166, 90, 0) 30%, rgba(242, 166, 90, 0.35) 52%, rgba(255, 246, 228, 0.25) 60%, rgba(242, 166, 90, 0) 70%);
+  animation: p2Ripple 0.8s ease-out both;
+}
+
+@keyframes p2Ripple {
+  from {
+    transform: scale(0.1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .p2-ripple {
+    display: none;
+  }
+}
+
+.p2-opt-check {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  background: var(--sage-deep);
+  color: var(--on-ink);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.p2-opt-label {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 18px;
+  text-align: center;
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.p2-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.p2-buttons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}

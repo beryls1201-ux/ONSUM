@@ -1,0 +1,13 @@
+<!-- @dsCard group="Feedback" height=110 subtitle="P2 질문 진행 표시" -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Quicksand:wght@500;600&display=swap">
+<style>
+.wrap{font-family:var(--font-sans);color:var(--ink);background:var(--surface-cream);padding:24px;display:flex;flex-direction:column;gap:14px;max-width:360px}
+p{margin:0;font-size:15px;font-weight:500;color:var(--ink-muted)}
+b{font:600 15px var(--font-num);color:var(--ink)}
+.track{height:6px;border-radius:var(--radius-pill);background:var(--line-soft);overflow:hidden}
+.fill{height:100%;width:50%;border-radius:var(--radius-pill);background:var(--apricot)}
+</style>
+<div class="wrap">
+<p>질문 <b>2</b> / <b>4</b></p>
+<div class="track" role="progressbar" aria-valuemin="1" aria-valuemax="4" aria-valuenow="2" aria-label="진행 상황"><div class="fill"></div></div>
+</div>

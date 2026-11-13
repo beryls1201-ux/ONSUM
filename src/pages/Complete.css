@@ -1,0 +1,115 @@
+/* P4-S4 주문 완료 */
+.p4d-main {
+  padding-top: 64px;
+  padding-bottom: 128px;
+}
+
+.p4d-section {
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  text-align: center;
+}
+
+.p4d-section > .btn {
+  padding: 0 32px;
+}
+
+.p4d-head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.p4d-img {
+  width: 96px;
+  height: 96px;
+  border-radius: 16px;
+}
+
+.p4d-img .photo-placeholder {
+  display: none;
+}
+
+.p4d-box {
+  width: 100%;
+  background: var(--surface-linen);
+  border-radius: 24px;
+  padding: 32px 40px;
+  text-align: left;
+}
+
+.p4d-dl {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  font-size: 15px;
+}
+
+.p4d-dl > div {
+  display: grid;
+  grid-template-columns: 160px minmax(0, 1fr);
+  gap: 16px;
+  padding: 16px 0;
+  border-top: 1px solid var(--line);
+}
+
+.p4d-dl > div:first-child {
+  padding-top: 0;
+  border-top: 0;
+  padding-bottom: 18px;
+}
+
+.p4d-dl > div:last-child {
+  padding-bottom: 0;
+}
+
+.p4d-dl > .is-center {
+  align-items: center;
+}
+
+.p4d-dl dt {
+  color: var(--ink-muted);
+}
+
+.p4d-dl dd {
+  margin: 0;
+}
+
+.p4d-no {
+  font-size: 20px;
+  letter-spacing: 0.02em;
+}
+
+.p4d-items {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.p4d-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.p4d-total {
+  font-size: 20px;
+}
+
+.p4d-status {
+  display: inline-flex;
+  align-items: center;
+  height: 30px;
+  padding: 0 14px;
+  border-radius: 999px;
+  background: var(--surface-cream);
+  border: 1.5px solid var(--sage-deep);
+  color: var(--sage-deep);
+  font-size: 14px;
+  font-weight: 700;
+}

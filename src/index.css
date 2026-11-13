@@ -1,0 +1,501 @@
+/* ONSUM 디자인 토큰 (출처: docs/design-system/tokens.json) */
+:root {
+  --surface-cream: #f7f2ea;
+  --surface-linen: #ede4d6;
+  --surface-soft: #fbf8f3;
+  --surface-white: #ffffff;
+  --ink: #2e2a26;
+  --ink-body: #3e3833;
+  --ink-muted: #5e5750;
+  --ink-subtle: #6b635b;
+  --on-ink: #f7f2ea;
+  --line: #d8ccba;
+  --line-strong: #cbbeaa;
+  --line-soft: #e4d9c8;
+  --sage-deep: #4f6b4a;
+  --sage-tint: #e1e8dc;
+  --apricot: #f2a65a;
+  --apricot-tint: #fbe3c9;
+  --check-line: #b5a894;
+
+  --font-display: 'Gowun Dodum', 'Noto Sans KR', sans-serif;
+  --font-sans: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  --font-num: 'Quicksand', 'Noto Sans KR', sans-serif;
+
+  --shadow-lift: 0 18px 40px -24px rgba(46, 42, 38, 0.35);
+  --shadow-addbar: 0 6px 18px -10px rgba(46, 42, 38, 0.5);
+  --shadow-focus: 0 0 0 3px rgba(79, 107, 74, 0.18);
+  --shadow-error: 0 0 0 3px rgba(242, 166, 90, 0.25);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--surface-cream);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: var(--ink);
+}
+
+a:hover {
+  color: var(--sage-deep);
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app > main {
+  flex: 1 0 auto;
+}
+
+/* 레이아웃 */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 24px;
+  padding-right: 24px;
+  box-sizing: content-box;
+}
+
+.stack-48 {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.head-group {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 760px;
+}
+
+/* 글자 */
+.h1,
+.h2,
+.h3,
+.h4 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 400;
+}
+
+.h1 {
+  font-size: 44px;
+  line-height: 1.28;
+  letter-spacing: -0.02em;
+}
+
+.h2 {
+  font-size: 40px;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+}
+
+.h3 {
+  font-size: 28px;
+  line-height: 1.35;
+  letter-spacing: -0.015em;
+}
+
+.h4 {
+  font-size: 22px;
+  line-height: 1.35;
+  letter-spacing: -0.015em;
+}
+
+.lead {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--ink-subtle);
+}
+
+.num {
+  font-family: var(--font-num);
+  font-weight: 600;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* 버튼 */
+.btn,
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 56px;
+  padding: 0 28px;
+  border-radius: 999px;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btn {
+  border: 0;
+  background: var(--ink);
+  color: var(--on-ink);
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+  background: var(--sage-deep);
+  color: var(--on-ink);
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn.is-dim {
+  opacity: 0.4;
+}
+
+.btn-ghost {
+  border: 1.5px solid var(--ink);
+  background: transparent;
+  color: var(--ink);
+  transition: background-color 0.2s ease;
+}
+
+.btn-ghost:hover {
+  background: var(--surface-linen);
+  color: var(--ink);
+}
+
+/* 리넨 면 위의 보조 버튼은 크림으로 */
+.on-linen .btn-ghost:hover,
+.btn-ghost.on-linen:hover {
+  background: var(--surface-cream);
+}
+
+.btn-sm {
+  height: 48px;
+  padding: 0 24px;
+  font-size: 15px;
+}
+
+.btn-block {
+  display: flex;
+  width: 100%;
+}
+
+.icon-btn {
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+}
+
+.btn:focus-visible,
+.btn-ghost:focus-visible,
+.icon-btn:focus-visible,
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--sage-deep);
+  outline-offset: 3px;
+}
+
+/* 안내 문구: 완료 / 오류 / 확인 */
+.notice {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  align-self: flex-start;
+  margin: 0;
+  padding: 6px 14px 6px 6px;
+  border-radius: 999px;
+  color: var(--ink);
+  border: 1px solid;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.notice::before {
+  flex: 0 0 auto;
+  width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.notice-ok {
+  background: var(--sage-tint);
+  border-color: var(--sage-deep);
+}
+
+.notice-ok::before {
+  content: '\2713';
+  background: var(--sage-deep);
+  color: var(--on-ink);
+}
+
+.notice-err {
+  background: var(--apricot-tint);
+  border-color: var(--apricot);
+}
+
+.notice-err::before {
+  content: '!';
+  background: var(--apricot);
+  color: var(--ink);
+}
+
+.notice-chk {
+  background: var(--surface-cream);
+  border-color: var(--check-line);
+}
+
+.notice-chk::before {
+  content: 'i';
+  background: var(--ink);
+  color: var(--on-ink);
+}
+
+.notice-sm {
+  font-size: 13px;
+}
+
+/* 향 대표 색 원 */
+.dot {
+  display: inline-block;
+  flex: 0 0 auto;
+  border-radius: 999px;
+  border: 1px solid rgba(46, 42, 38, 0.15);
+}
+
+/* 이미지 */
+.photo {
+  position: relative;
+  overflow: hidden;
+  background: var(--surface-linen);
+}
+
+.photo > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 입력칸 */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.field > label,
+.field-label {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.input {
+  height: 52px;
+  padding: 0 16px;
+  border-radius: 8px;
+  border: 1px solid var(--line-strong);
+  background: var(--surface-cream);
+  color: var(--ink);
+  font-size: 16px;
+  width: 100%;
+  min-width: 0;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+textarea.input {
+  height: auto;
+  padding: 14px 16px;
+  line-height: 1.6;
+}
+
+.input::placeholder {
+  color: #7a7168;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--sage-deep);
+  box-shadow: var(--shadow-focus);
+}
+
+.input.is-error {
+  border: 2px solid var(--apricot);
+  box-shadow: var(--shadow-error);
+}
+
+.check {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.check input,
+.checkbox {
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  accent-color: var(--sage-deep);
+  flex: 0 0 auto;
+}
+
+.req {
+  color: var(--sage-deep);
+  font-weight: 700;
+}
+
+/* 수량 조절 */
+.qty {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  height: 48px;
+  padding: 0 4px;
+  border-radius: 999px;
+  background: var(--surface-cream);
+}
+
+.qty .icon-btn:hover {
+  background: var(--surface-linen);
+}
+
+.qty-linen {
+  height: 44px;
+  padding: 0 2px;
+  background: var(--surface-linen);
+}
+
+.qty-linen .icon-btn:hover {
+  background: var(--surface-cream);
+}
+
+.qty-value {
+  min-width: 32px;
+  text-align: center;
+  font-family: var(--font-num);
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.price {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* 노트 쉽게 보기 */
+.easy {
+  background: var(--surface-cream);
+  border-radius: 12px;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.easy p {
+  margin: 0;
+}
+
+.easy-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--ink-muted);
+}
+
+.easy strong {
+  font-weight: 500;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* 마우스를 따라 움직이는 은은한 빛 (Spotlight) */
+.spotlight {
+  isolation: isolate;
+}
+
+.spotlight-glow {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 0;
+  transition: opacity 0.4s ease;
+}
+
+.spotlight > :not(.spotlight-glow) {
+  position: relative;
+  z-index: 1;
+}
+
+@media (hover: none) {
+  .spotlight-glow {
+    display: none;
+  }
+}

@@ -1,0 +1,401 @@
+/* P3 향 소개(상품) */
+.p3-section {
+  padding-top: 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.p3-fade {
+  animation: p3In 0.35s ease both;
+}
+
+@keyframes p3In {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* 테스트 안내 배너 */
+.p3-banner {
+  background: var(--surface-linen);
+  border-radius: 24px;
+  padding: 16px 24px 16px 16px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.p3-banner-img {
+  width: 160px;
+  height: 100px;
+  flex: 0 0 auto;
+  border-radius: 16px;
+}
+
+.p3-banner-img .photo-placeholder {
+  left: 8px;
+  bottom: 8px;
+  padding: 3px 8px;
+  font-size: 11px;
+}
+
+.p3-banner-text {
+  flex: 1 1 360px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.p3-banner-text .h4 {
+  line-height: 1.4;
+}
+
+.p3-banner-sub {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--ink-muted);
+}
+
+.p3-banner-btn {
+  height: 52px;
+  padding: 0 24px;
+  font-size: 15px;
+}
+
+/* 계절 탭 */
+.p3-tabs-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.p3-tabs {
+  display: inline-flex;
+  align-self: flex-start;
+  gap: 4px;
+  padding: 4px;
+  border-radius: 999px;
+  background: var(--surface-linen);
+}
+
+.p3-tab {
+  height: 44px;
+  padding: 0 24px;
+  border: 0;
+  border-radius: 999px;
+  font-size: 15px;
+  cursor: pointer;
+  background: transparent;
+  color: var(--ink-muted);
+  font-weight: 500;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.p3-tab:hover {
+  color: var(--ink);
+}
+
+.p3-tab.is-on {
+  background: var(--ink);
+  color: var(--on-ink);
+  font-weight: 700;
+}
+
+.p3-season-photo {
+  width: 100%;
+  height: 200px;
+  border-radius: 28px;
+}
+
+.p3-season-photo .photo-placeholder {
+  left: auto;
+  bottom: auto;
+  right: 16px;
+  top: 14px;
+}
+
+/* 향 카드 */
+.p3-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+  gap: 24px;
+}
+
+.p3-card {
+  background: var(--surface-linen);
+  border-radius: 24px;
+  padding: 16px 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border: 2px solid transparent;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.p3-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lift);
+}
+
+.p3-card.is-on {
+  border-color: var(--sage-deep);
+}
+
+.p3-radio {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 32px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink-muted);
+}
+
+/* 마우스로 고를 때는 카드 테두리만, 키보드로 이동할 때만 포커스 표시 */
+.p3-radio:has(input:focus-visible) {
+  outline: 2px solid var(--sage-deep);
+  outline-offset: 3px;
+  border-radius: 999px;
+}
+
+.p3-radio input {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  accent-color: var(--sage-deep);
+}
+
+.p3-radio-dot {
+  margin-left: auto;
+  display: inline-flex;
+}
+
+.p3-card-img {
+  width: 100%;
+  aspect-ratio: 344 / 260;
+  border-radius: 16px;
+}
+
+.p3-card-img .photo-placeholder {
+  left: 12px;
+  top: 12px;
+  bottom: auto;
+  padding: 4px 10px;
+  font-size: 11px;
+}
+
+/* 담기 막대: 카드에 마우스를 올리면 사진 아래에서 올라옴, 터치 화면에서는 항상 표시 */
+.p3-addbar-wrap {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+}
+
+.p3-addbar {
+  width: 100%;
+  height: 44px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px) saturate(1.1);
+  -webkit-backdrop-filter: blur(10px) saturate(1.1);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: var(--shadow-addbar);
+  transform: translateY(160%);
+  transition: transform 0.3s ease, background-color 0.2s ease;
+}
+
+.p3-card:hover .p3-addbar,
+.p3-card:focus-within .p3-addbar {
+  transform: none;
+}
+
+.p3-addbar:hover {
+  background: rgba(247, 242, 234, 0.8);
+}
+
+/* 누른 뒤 1.5초: 세이지 딥 바탕 + 크림 글자 + 체크 */
+.p3-addbar.is-added,
+.p3-addbar.is-added:hover {
+  background: var(--sage-deep);
+  border-color: var(--sage-deep);
+  color: var(--on-ink);
+}
+
+.p3-buy-add {
+  min-width: 152px;
+}
+
+.p3-buy-add.is-added,
+.p3-buy-add.is-added:hover {
+  background: var(--sage-deep);
+  border-color: var(--sage-deep);
+  color: var(--on-ink);
+}
+
+.p3-addbar:focus-visible {
+  outline: 2px solid var(--sage-deep);
+  outline-offset: 3px;
+}
+
+@media (hover: none) {
+  .p3-addbar {
+    transform: none;
+  }
+
+  .p3-card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+.p3-card-text {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 0 4px;
+}
+
+.p3-card-name {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 1.35;
+  letter-spacing: -0.015em;
+}
+
+.p3-card-lines {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+  min-height: 48px;
+}
+
+.p3-card-notes {
+  margin: 0;
+  font-size: 13px;
+  color: var(--ink-muted);
+}
+
+.p3-card-price {
+  padding: 0 4px;
+}
+
+/* P3-S2 구매 영역 */
+.p3-buy-section {
+  padding-top: 48px;
+  padding-bottom: 128px;
+}
+
+.p3-buy {
+  background: var(--surface-linen);
+  border-radius: 24px;
+  padding: 24px 32px 24px 24px;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.p3-buy-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex: 1 1 360px;
+  min-width: 0;
+}
+
+.p3-buy-thumb {
+  width: 120px;
+  height: 120px;
+  flex: 0 0 auto;
+  border-radius: 16px;
+}
+
+.p3-buy-thumb .photo-placeholder {
+  display: none;
+}
+
+.p3-buy-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.p3-buy-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.p3-buy-notes {
+  margin: 0;
+  font-size: 14px;
+  color: var(--ink-muted);
+}
+
+.p3-buy-empty {
+  margin: 0;
+  flex: 1 1 360px;
+  font-size: 16px;
+  color: var(--ink-muted);
+}
+
+.p3-buy-total {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 120px;
+}
+
+.p3-buy-total-label {
+  font-size: 13px;
+  color: var(--ink-muted);
+}
+
+.p3-buy-total-val {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.p3-buy-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.p3-toast {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 16px;
+  min-height: 32px;
+}
+
+.p3-toast .notice {
+  align-self: auto;
+}
+
+.p3-toast-empty {
+  margin: 0;
+}

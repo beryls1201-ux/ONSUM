@@ -1,0 +1,20 @@
+<!-- @dsCard group="Feedback" height=250 subtitle="완료 · 오류 · 확인 · 삭제 확인" -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+.wrap{font-family:var(--font-sans);color:var(--ink);background:var(--surface-cream);padding:24px;display:flex;flex-direction:column;gap:14px;align-items:flex-start}
+.m{display:inline-flex;align-items:center;gap:8px;padding:6px 14px 6px 6px;border-radius:var(--radius-pill);border:1px solid;font-size:15px;font-weight:500;color:var(--ink)}
+.m i{font-style:normal;width:20px;height:20px;border-radius:var(--radius-pill);display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:700}
+.ok{background:var(--sage-tint);border-color:var(--sage-deep)}.ok i{background:var(--sage-deep);color:var(--on-ink)}
+.err{background:var(--apricot-tint);border-color:var(--apricot)}.err i{background:var(--apricot);color:var(--ink)}
+.chk{background:var(--surface-cream);border-color:var(--check-line)}.chk i{background:var(--ink);color:var(--on-ink)}
+.confirm{align-self:stretch;background:var(--surface-linen);border-radius:var(--radius-md);padding:12px 14px 12px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;font-size:15px;font-weight:500}
+.confirm div{display:flex;gap:8px}
+.b{height:44px;padding:0 20px;border-radius:var(--radius-pill);font:500 15px var(--font-sans);border:1.5px solid var(--ink);background:transparent;color:var(--ink)}
+.b.p{background:var(--ink);color:var(--on-ink);border-color:var(--ink)}
+</style>
+<div class="wrap">
+<p class="m ok" role="status"><i>✓</i>선택한 향을 장바구니에 담았어요.</p>
+<p class="m err" role="alert"><i>!</i>필수 동의 항목을 확인해주세요.</p>
+<p class="m chk" role="alert"><i>i</i>가장 마음에 드는 장면 하나를 선택해주세요.</p>
+<div class="confirm" role="alertdialog" aria-label="삭제 확인">이 향을 장바구니에서 삭제할까요?<div><button class="b" type="button">취소</button><button class="b p" type="button">삭제</button></div></div>
+</div>

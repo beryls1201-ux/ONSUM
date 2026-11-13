@@ -1,0 +1,410 @@
+/* P4-S2 선물 옵션 · P4-S3 결제 */
+.p4c-main {
+  flex: 999 1 640px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.p4c-panel {
+  background: var(--surface-linen);
+  border-radius: 24px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.p4c-panel-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 1.35;
+  letter-spacing: -0.015em;
+}
+
+.p4c-panel .btn-ghost:hover {
+  background: var(--surface-cream);
+}
+
+/* 토글 */
+.p4c-gift-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.p4c-switch {
+  position: relative;
+  width: 56px;
+  height: 32px;
+  flex: 0 0 auto;
+  border: 0;
+  border-radius: 999px;
+  padding: 0;
+  cursor: pointer;
+  background: var(--check-line);
+  transition: background-color 0.2s ease;
+}
+
+.p4c-switch.is-on {
+  background: var(--sage-deep);
+}
+
+.p4c-knob {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  background: var(--surface-cream);
+  box-shadow: 0 1px 3px rgba(46, 42, 38, 0.3);
+  transition: transform 0.2s ease;
+}
+
+.p4c-switch.is-on .p4c-knob {
+  transform: translateX(24px);
+}
+
+.p4c-gift-body {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  padding-top: 4px;
+}
+
+/* 메시지 카드 미리보기 */
+.p4c-card-col {
+  flex: 0 1 480px;
+  min-width: min(100%, 320px);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.p4c-card-cap {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink-muted);
+}
+
+.p4c-card {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 480 / 194;
+  border-radius: 16px;
+  overflow: hidden;
+  background-color: var(--surface-soft);
+  background-size: cover;
+  background-position: center;
+  border: 1px solid #e0d4c2;
+  display: flex;
+}
+
+.p4c-card-band {
+  flex: 0 0 14px;
+}
+
+.p4c-card-text {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: 18px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.p4c-card-text p {
+  margin: 0;
+}
+
+.p4c-card-name {
+  font-family: var(--font-display);
+  font-size: 19px;
+  line-height: 1.35;
+}
+
+.p4c-card-notes {
+  font-size: 12px;
+  color: var(--ink-muted);
+}
+
+.p4c-card-scene {
+  margin-top: 6px !important;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.p4c-card-msg {
+  font-size: 13px;
+  line-height: 1.55;
+  white-space: pre-line;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+}
+
+.p4c-card-msg.is-example {
+  color: var(--ink-subtle);
+}
+
+.p4c-gift-form {
+  flex: 1 1 260px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.p4c-textarea {
+  resize: none;
+  font-size: 15px;
+}
+
+.p4c-count {
+  align-self: flex-end;
+  font-size: 12px;
+  color: var(--ink-muted);
+}
+
+.p4c-wrap {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px;
+  border-radius: 16px;
+  background: var(--surface-cream);
+  cursor: pointer;
+}
+
+.p4c-wrap .checkbox {
+  margin-top: 2px;
+}
+
+.p4c-wrap-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.p4c-wrap-title {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.p4c-wrap-fee {
+  color: var(--ink-muted);
+  font-weight: 400;
+}
+
+.p4c-wrap-sub {
+  font-size: 13px;
+  color: var(--ink-muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* 입력 */
+.p4c-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
+  gap: 16px;
+}
+
+.p4c-help {
+  margin: 0;
+  font-size: 12px;
+  color: var(--ink-muted);
+}
+
+.p4c-narrow {
+  max-width: 360px;
+}
+
+.p4c-addr {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.p4c-addr .input {
+  flex: 1 1 320px;
+}
+
+.p4c-addr-btn {
+  height: 52px;
+  padding: 0 24px;
+  font-size: 15px;
+}
+
+/* 결제 수단 */
+.p4c-pays {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(160px, 100%), 1fr));
+  gap: 12px;
+}
+
+.p4c-pay {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 56px;
+  padding: 0 18px;
+  border-radius: 16px;
+  background: var(--surface-cream);
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  border: 2px solid transparent;
+}
+
+.p4c-pay.is-on {
+  border-color: var(--sage-deep);
+}
+
+.p4c-pay input {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  accent-color: var(--sage-deep);
+}
+
+.p4c-agrees {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border-top: 1px solid var(--line);
+  padding-top: 16px;
+}
+
+/* 금액 */
+.p4c-aside {
+  position: sticky;
+  top: 104px;
+}
+
+.p4c-items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.p4c-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.p4c-item-thumb {
+  width: 64px;
+  height: 64px;
+  flex: 0 0 auto;
+  border-radius: 8px;
+}
+
+.p4c-item-thumb .photo-placeholder {
+  display: none;
+}
+
+.p4c-item-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.p4c-item-info p {
+  margin: 0;
+}
+
+.p4c-item-name {
+  font-family: var(--font-display);
+  font-size: 18px;
+  line-height: 1.35;
+}
+
+.p4c-item-sub {
+  font-size: 13px;
+  color: var(--ink-muted);
+}
+
+.p4c-dl {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-top: 1px solid var(--line);
+  padding-top: 16px;
+  font-size: 15px;
+}
+
+.p4c-dl > div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.p4c-dl dt {
+  color: var(--ink-muted);
+}
+
+.p4c-dl dd {
+  margin: 0;
+}
+
+.p4c-dl > .is-total {
+  align-items: baseline;
+  border-top: 1px solid var(--line);
+  padding-top: 14px;
+}
+
+.p4c-dl > .is-total dt {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.p4c-dl > .is-total dd {
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.p4c-help13 {
+  font-size: 13px;
+}
+
+/* 주소 검색 팝업 */
+.p4c-dialog-back {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: rgba(46, 42, 38, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.p4c-dialog {
+  width: 100%;
+  max-width: 480px;
+  background: var(--surface-cream);
+  border-radius: 24px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.p4c-dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}

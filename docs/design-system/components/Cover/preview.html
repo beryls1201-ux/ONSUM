@@ -1,0 +1,45 @@
+<!-- @dsCard height=288 -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Noto+Sans+KR:wght@400;500&display=swap">
+<style>
+.cv{position:relative;width:960px;height:288px;background:var(--surface-cream);overflow:hidden}
+.cv svg{position:absolute;left:0;top:0}
+.sage{fill:var(--sage-deep)}
+.apri{fill:var(--apricot)}
+.ink{fill:var(--ink)}
+.linen{fill:var(--surface-linen)}
+.cream{fill:var(--surface-cream)}
+.lg{rx:var(--radius-lg)}
+.xl{rx:var(--radius-xl)}
+.pill16{rx:var(--radius-xs)}
+.disc{rx:48px}
+.name{position:absolute;left:40px;bottom:40px;max-width:440px;display:flex;flex-direction:column;gap:12px}
+.name h1{margin:0;font:400 64px/0.95 var(--font-display);letter-spacing:-0.02em;color:var(--ink)}
+.name p{margin:0;font:400 14px/1.4 var(--font-sans);color:var(--ink-subtle)}
+</style>
+<div class="cv">
+<!--
+blocks: sage-deep 192×240 (radius-lg) · ink 176×128 (radius-lg) · apricot pill 152×96 (r 48 = half) · linen 96×168 (radius-lg) — sage and ink lead, apricot is the logo dot
+arrangement: one tall sage slab bleeding off the top, ink bleeding off the right, apricot pill and linen satellites below, all right of x=480
+pattern: soft, friendly, everything pill-shaped (radius-pill buttons, chips, tabs) → a field of 12 small cream pills cut into the sage slab
+scales: pills 48×16 at space-2 (8) gaps, rx radius-xs (8 = half of 16); blocks gap space-4 (16); corners radius-lg (24)
+-->
+<svg width="960" height="288" viewBox="0 0 960 288" aria-hidden="true">
+<rect class="linen lg" x="496" y="104" width="96" height="208"></rect>
+<rect class="sage lg" x="608" y="-24" width="192" height="240"></rect>
+<rect class="ink lg" x="816" y="-24" width="176" height="152"></rect>
+<rect class="apri disc" x="816" y="144" width="152" height="96"></rect>
+<rect class="cream pill16" x="632" y="24" width="48" height="16"></rect>
+<rect class="cream pill16" x="688" y="24" width="48" height="16"></rect>
+<rect class="cream pill16" x="744" y="24" width="32" height="16"></rect>
+<rect class="cream pill16" x="632" y="48" width="32" height="16"></rect>
+<rect class="cream pill16" x="672" y="48" width="48" height="16"></rect>
+<rect class="cream pill16" x="728" y="48" width="48" height="16"></rect>
+<rect class="cream pill16" x="632" y="72" width="48" height="16"></rect>
+<rect class="cream pill16" x="688" y="72" width="88" height="16"></rect>
+<rect class="cream pill16" x="632" y="96" width="88" height="16"></rect>
+<rect class="cream pill16" x="728" y="96" width="48" height="16"></rect>
+<rect class="cream pill16" x="632" y="120" width="48" height="16"></rect>
+<rect class="cream pill16" x="688" y="120" width="32" height="16"></rect>
+</svg>
+<div class="name"><h1>ONSUM<br>디자인 시스템</h1><p>내 방의 온도를 바꾸는 향, 온숨.</p></div>
+</div>

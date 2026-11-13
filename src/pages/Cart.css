@@ -1,0 +1,235 @@
+/* P4 공통 */
+.p4-section {
+  padding-top: 64px;
+  padding-bottom: 128px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.btn-xs {
+  height: 44px;
+  padding: 0 20px;
+  font-size: 15px;
+}
+
+.notice-sm14 {
+  font-size: 14px;
+}
+
+.p4-layout {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+/* P4-S1 빈 장바구니 */
+.p4-empty {
+  background: var(--surface-linen);
+  border-radius: 24px;
+  padding: 72px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+}
+
+.p4-empty-img {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+}
+
+.p4-empty-img .photo-placeholder {
+  display: none;
+}
+
+.p4-empty-text {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.p4-empty-text p {
+  margin: 0;
+}
+
+.p4-empty-text p:last-child {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--ink-muted);
+}
+
+.p4-empty-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+/* 상품 목록 */
+.p4-list {
+  flex: 999 1 640px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--line);
+}
+
+.p4-row {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.p4-row-main {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.p4-check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+}
+
+.p4-thumb {
+  width: 96px;
+  height: 96px;
+  flex: 0 0 auto;
+  border-radius: 8px;
+}
+
+.p4-thumb .photo-placeholder {
+  display: none;
+}
+
+.p4-row-info {
+  flex: 1 1 220px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.p4-row-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.p4-row-notes {
+  margin: 0;
+  font-size: 14px;
+  color: var(--ink-muted);
+}
+
+.p4-row .qty-value {
+  min-width: 28px;
+  font-size: 17px;
+}
+
+.p4-row-price {
+  min-width: 104px;
+  text-align: right;
+}
+
+.p4-del {
+  width: 44px;
+  height: 44px;
+  color: var(--ink-muted);
+}
+
+.p4-del:hover {
+  background: var(--surface-linen);
+}
+
+.p4-confirm {
+  margin-left: 64px;
+  background: var(--surface-linen);
+  border-radius: 16px;
+  padding: 14px 16px 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.p4-confirm p {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.p4-confirm-actions {
+  display: flex;
+  gap: 8px;
+}
+
+/* 합계 */
+.p4-summary {
+  flex: 1 1 340px;
+  min-width: 0;
+  background: var(--surface-linen);
+  border-radius: 24px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.p4-summary-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.p4-summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 15px;
+}
+
+.p4-summary-row > span:first-child {
+  color: var(--ink-muted);
+}
+
+.p4-summary-row.is-total {
+  border-top: 1px solid var(--line);
+  padding-top: 16px;
+}
+
+.p4-summary-count {
+  font-weight: 500;
+}
+
+.p4-summary-total {
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.p4-summary-help {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--ink-muted);
+}
+
+.p4-summary-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

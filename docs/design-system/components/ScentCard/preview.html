@@ -1,0 +1,38 @@
+<!-- @dsCard group="Content" height=600 width=1000 subtitle="P3 향 카드 · P2 결과 2·3위 카드" -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Noto+Sans+KR:wght@400;500;700&family=Quicksand:wght@500;600&display=swap">
+<style>
+.wrap{font-family:var(--font-sans);color:var(--ink);background:var(--surface-cream);padding:24px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;align-items:start}
+.card{background:var(--surface-linen);border-radius:var(--radius-lg);padding:16px 20px 24px;display:flex;flex-direction:column;gap:14px;border:2px solid transparent}
+.card.on{border-color:var(--sage-deep)}
+.top{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:500;color:var(--ink-muted)}
+.dot{width:14px;height:14px;border-radius:var(--radius-pill);border:1px solid rgba(46,42,38,.15);margin-left:auto}
+.img{position:relative;aspect-ratio:344/260;border-radius:var(--radius-md);overflow:hidden}
+.bar{position:absolute;left:12px;right:12px;bottom:12px;height:var(--control-sm);border-radius:var(--radius-pill);background:var(--surface-white);display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:500;box-shadow:var(--shadow-addbar)}
+h2{margin:0;font:400 26px/1.35 var(--font-display);letter-spacing:-.015em}
+.scene{margin:0;font-size:15px;line-height:1.6}
+.notes{margin:0;font-size:13px;color:var(--ink-muted)}
+.easy{background:var(--surface-cream);border-radius:var(--radius-sm);padding:12px 14px;font-size:13px;line-height:1.6}
+.easy b{display:block;font-size:12px;color:var(--ink-muted)}
+.price{margin:0;font-size:18px;font-weight:700}
+.num{font-family:var(--font-num);font-weight:600}
+.rank{height:28px;padding:0 12px;border-radius:var(--radius-pill);background:var(--apricot);color:var(--ink);display:inline-flex;align-items:center;font-size:13px;font-weight:700}
+</style>
+<div class="wrap">
+<article class="card on">
+<label class="top"><input type="radio" checked style="accent-color:var(--sage-deep);width:18px;height:18px;margin:0"> 가을 · 아침<span class="dot" style="background:var(--scent-autumn-morning)"></span></label>
+<div class="img" style="background:var(--scent-autumn-morning)"><span class="bar">+ 장바구니 담기</span></div>
+<h2>첫 차 한 잔</h2>
+<p class="scene">따뜻한 차 한 잔으로 천천히 여는 아침.<br>차분하고 편안한 분위기를 담았어요.</p>
+<p class="notes">얼그레이 · 베르가못</p>
+<div class="easy"><b>노트 쉽게 보기</b>얼그레이 — 은은한 홍차 향<br>베르가못 — 상큼하고 쌉싸름한 감귤 향</div>
+<p class="price"><span class="num">39,000</span>원</p>
+</article>
+<article class="card">
+<div class="top"><span class="rank"><span class="num">2</span>위</span><span class="dot" style="background:var(--scent-autumn-day);margin-left:0"></span></div>
+<div class="img" style="aspect-ratio:548/200;background:var(--scent-autumn-day)"></div>
+<h2>가을 낮 · 길어진 햇살</h2>
+<p class="scene">나무와 초록 잎의 편안한 분위기를 좋아한다면.</p>
+<p class="notes">시더우드 · 무화과잎</p>
+<p class="price"><span class="num">39,000</span>원</p>
+</article>
+</div>

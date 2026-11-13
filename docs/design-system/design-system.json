@@ -1,0 +1,43 @@
+{
+  "v": 3,
+  "assetGroups": {
+    "Logos": {
+      "files": {
+        "onsum-logo-primary.svg": {
+          "blob": "71b2be156abe9c03e062d48dde885f20",
+          "name": "onsum-logo-primary.svg",
+          "size": 15513,
+          "type": "image/svg+xml"
+        }
+      },
+      "name": "Logos",
+      "order": [
+        "onsum-logo-primary.svg"
+      ],
+      "tile": "l"
+    }
+  },
+  "blobs": {},
+  "createdOnFiles": {
+    "at": "2026-11-13T03:05:00Z",
+    "v": 1
+  },
+  "docs": {
+    "readme": "project/README.md",
+    "sections": []
+  },
+  "groups": [
+    "Logos"
+  ],
+  "lastChange": {
+    "at": "2026-11-13T03:05:00Z",
+    "by": "군밤",
+    "note": "Design 캔버스 'ONSUM 메인 디자인'(P1~P6, 부록, 스타일 가이드)에서 토큰·컴포넌트를 옮겨 처음 만듦",
+    "via": "Cowork"
+  },
+  "layout": "files",
+  "libraries": [],
+  "namespace": "Onsum",
+  "sections": {},
+  "title": "ONSUM 디자인 시스템"
+}

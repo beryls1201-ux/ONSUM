@@ -1,0 +1,324 @@
+/* P5 브랜드 소개 */
+.p5-intro {
+  padding-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.p5-hero {
+  height: 420px;
+  border-radius: 28px;
+}
+
+.p5-hero .photo-placeholder {
+  left: auto;
+  bottom: auto;
+  top: 20px;
+  right: 24px;
+}
+
+.p5-intro-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr));
+  gap: 48px;
+  align-items: start;
+}
+
+.p5-title {
+  font-size: 48px;
+}
+
+.p5-body {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.85;
+  color: var(--ink-body);
+}
+
+.p5-block {
+  padding-top: 96px;
+}
+
+.p5-last {
+  padding-bottom: 128px;
+}
+
+.p5-split {
+  display: flex;
+  gap: 64px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.p5-split.is-reverse {
+  flex-wrap: wrap-reverse;
+}
+
+.p5-split-text {
+  flex: 1 1 420px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.p5-illust,
+.p5-gift-img {
+  flex: 1 1 520px;
+  min-width: min(100%, 320px);
+  max-width: 580px;
+  aspect-ratio: 580 / 320;
+  border-radius: 28px;
+}
+
+.p5-illust .photo-placeholder,
+.p5-gift-img .photo-placeholder {
+  left: 16px;
+  bottom: 14px;
+}
+
+/* 장면 표시 */
+.p5-pin {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px 6px 8px;
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--on-ink);
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.p5-pin > span {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--on-ink);
+}
+
+/* 스크롤 장면 */
+.p5-scroll {
+  position: relative;
+  height: 960px;
+}
+
+.p5-mark {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 320px;
+}
+
+.p5-sticky {
+  position: sticky;
+  top: 112px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+}
+
+.p5-stage {
+  position: relative;
+  width: 100%;
+  max-width: 880px;
+  aspect-ratio: 580 / 320;
+  border-radius: 28px;
+  overflow: hidden;
+}
+
+.p5-layer {
+  position: absolute;
+  inset: 0;
+  border-radius: 28px;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.p5-layer.is-on {
+  opacity: 1;
+}
+
+.p5-layer.is-ph {
+  border: 2px dashed var(--line-strong);
+}
+
+.p5-layer.is-ph.is-night {
+  border-color: #7a6a5e;
+}
+
+.p5-layer img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.p5-layer-ph {
+  position: absolute;
+  left: 20px;
+  bottom: 16px;
+  font-size: 12px;
+  color: var(--ink-muted);
+}
+
+.p5-layer.is-night .p5-layer-ph {
+  color: var(--surface-linen);
+}
+
+.p5-chip {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  margin: 0;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 500;
+  background: var(--ink);
+  color: var(--on-ink);
+}
+
+.p5-chip.is-night {
+  background: var(--surface-cream);
+  color: var(--ink);
+}
+
+.p5-steps {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.p5-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 10px 12px;
+  border-radius: 20px;
+  background: var(--surface-linen);
+  color: var(--ink);
+  cursor: pointer;
+  border: 2px solid transparent;
+  opacity: 0.75;
+  transition: border-color 0.3s ease, opacity 0.3s ease;
+}
+
+.p5-step.is-on {
+  border-color: var(--sage-deep);
+  opacity: 1;
+}
+
+.p5-step-thumb {
+  display: block;
+  width: 180px;
+  height: 100px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.p5-step-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.p5-step-label {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* 두 갈래 카드 */
+.p5-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(460px, 100%), 1fr));
+  gap: 24px;
+}
+
+.p5-card {
+  background: var(--surface-linen);
+  border-radius: 24px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.p5-card-head {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.p5-card-head p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--ink-muted);
+}
+
+.p5-card-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.p5-card-steps li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.p5-card-steps .num {
+  width: 32px;
+  height: 32px;
+  flex: 0 0 auto;
+  border-radius: 999px;
+  background: var(--surface-cream);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+}
+
+.p5-card-cta {
+  display: flex;
+  margin-top: auto;
+}
+
+.p5-palette {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  background: var(--surface-cream);
+  border-radius: 16px;
+  padding: 20px 24px;
+}
+
+.p5-palette > div {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.p5-palette-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink-muted);
+}
+
+.p5-palette-dots {
+  display: flex;
+  gap: 6px;
+}

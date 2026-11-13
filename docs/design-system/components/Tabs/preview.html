@@ -1,0 +1,16 @@
+<!-- @dsCard group="Navigation" height=120 subtitle="P3 계절 탭" -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+.wrap{font-family:var(--font-sans);background:var(--surface-cream);padding:24px}
+.tabs{display:inline-flex;gap:4px;padding:4px;border-radius:var(--radius-pill);background:var(--surface-linen)}
+.tabs button{height:var(--control-sm);padding:0 24px;border:0;border-radius:var(--radius-pill);font:500 15px/1 var(--font-sans);background:transparent;color:var(--ink-muted);cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--ink);color:var(--on-ink);font-weight:700}
+</style>
+<div class="wrap">
+<div class="tabs" role="tablist" aria-label="계절">
+<button type="button" role="tab" aria-selected="false">봄</button>
+<button type="button" role="tab" aria-selected="false">여름</button>
+<button type="button" role="tab" aria-selected="true">가을</button>
+<button type="button" role="tab" aria-selected="false">겨울</button>
+</div>
+</div>
