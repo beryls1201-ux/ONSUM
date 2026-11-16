@@ -1,0 +1,47 @@
+/*
+ * 태블릿·모바일 전용 정렬 조정 — 2026-11-16 답변 기준 (docs/interaction.md 6장)
+ * 기준: mobile-interaction.css와 같음 (화면 폭 1023px 이하 이거나 터치 기기)
+ * 데스크톱(1024px 이상 + 마우스)에는 적용되지 않아요. 기존 규칙은 고치지 않고 덮어쓰기만 해요.
+ * 제목·설명 글은 기획 문서 원칙대로 왼쪽 정렬 그대로 둠
+ */
+
+@media (max-width: 1023px), (hover: none) and (pointer: coarse) {
+  /* 1. 푸터 전체 가운데: 문구 · 메뉴 · 로고 */
+  .ftr-top {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .ftr-nav {
+    justify-content: center;
+  }
+
+  .ftr-logo {
+    display: flex;
+    justify-content: center;
+  }
+
+  /* 2. 메인 '진행 순서' 칩: 연결선은 숨기고 세로로 쌓아 가운데 */
+  .p1-steps {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .p1-step-line {
+    display: none;
+  }
+
+  /* 3. 버튼 묶음 가운데 (버튼 크기는 그대로) */
+  .p2-buttons,
+  .p2r-first-actions,
+  .p6-send-row {
+    justify-content: center;
+  }
+
+  /* 구매 영역 버튼은 줄이 나뉘어 혼자 있을 때만 가운데로 (한 줄에 다 들어가면 위치 그대로) */
+  .p3-buy-actions {
+    margin-inline: auto;
+    justify-content: center;
+  }
+}

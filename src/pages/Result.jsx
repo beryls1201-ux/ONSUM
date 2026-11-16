@@ -20,6 +20,15 @@ function reduceMotion() {
   }
 }
 
+// 태블릿·모바일(화면 폭 1023px 이하 또는 터치 기기)인지 확인 — mobile-interaction.css와 같은 기준
+function isTabletOrMobile() {
+  try {
+    return window.matchMedia('(max-width: 1023px), (hover: none) and (pointer: coarse)').matches
+  } catch {
+    return false
+  }
+}
+
 // P2-S2 결과 화면 (결과 링크로 열면 같은 결과)
 export default function Result() {
   const navigate = useNavigate()
@@ -41,6 +50,14 @@ export default function Result() {
   useEffect(() => {
     if (!loading) return
     const t = setTimeout(() => setLoading(false), 1500)
+    return () => clearTimeout(t)
+  }, [loading])
+
+  // 16. 태블릿·모바일(화면 폭 1023px 이하 또는 터치 기기)에서만 전환 상태를 1초로 줄임 (docs/interaction.md)
+  // 데스크톱(1024px 이상 + 마우스)에서는 바로 끝나서 위의 1.5초가 그대로 적용됨
+  useEffect(() => {
+    if (!loading || !isTabletOrMobile()) return
+    const t = setTimeout(() => setLoading(false), 1000)
     return () => clearTimeout(t)
   }, [loading])
 

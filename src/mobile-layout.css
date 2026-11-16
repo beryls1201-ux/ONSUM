@@ -1,0 +1,91 @@
+/*
+ * 태블릿·모바일 화면 배치·글자 크기 조정 — 2026-11-16 답변 기준 (docs/interaction.md 8장)
+ * 태블릿·모바일 기준: mobile-interaction.css와 같음 (화면 폭 1023px 이하 이거나 터치 기기)
+ * 휴대폰 기준: 화면 폭 767px 이하
+ * 데스크톱(1024px 이상 + 마우스)에는 적용되지 않아요. 기존 규칙은 고치지 않고 덮어쓰기만 해요.
+ */
+
+@media (max-width: 1023px), (hover: none) and (pointer: coarse) {
+  /* 1. 메인 첫 화면: 사진 높이를 유리 글 상자에 맞춰 늘림 (최소 520px), 사진 위 유리 상자 디자인은 그대로 */
+  .p1-hero {
+    height: auto;
+    min-height: 520px;
+    display: flex;
+    align-items: flex-end;
+    padding: 40px;
+  }
+
+  .p1-hero > img {
+    position: absolute;
+    inset: 0;
+  }
+
+  .p1-glass {
+    position: relative;
+    left: auto;
+    bottom: auto;
+    max-width: 100%;
+  }
+
+  /* 2. 글자 크기 — 태블릿: 페이지 제목 36 / 테스트 질문 40 / 섹션 제목 34 / 카드 제목 26px */
+  .h1 {
+    font-size: 36px;
+  }
+
+  .h2 {
+    font-size: 34px;
+  }
+
+  .h3 {
+    font-size: 26px;
+  }
+
+  .p2-title {
+    font-size: 40px;
+  }
+
+  .p5-title {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 767px) {
+  /* 1. 메인 첫 화면: 휴대폰은 사진 가장자리 여백을 40px → 16px로 줄여 글 상자 폭을 확보 */
+  .p1-hero {
+    padding: 16px;
+  }
+
+  /* 2. 글자 크기 — 휴대폰: 페이지 제목 30 / 테스트 질문 32 / 섹션 제목 28 / 카드 제목 22px */
+  .h1 {
+    font-size: 30px;
+  }
+
+  .h2 {
+    font-size: 28px;
+  }
+
+  .h3 {
+    font-size: 22px;
+  }
+
+  .p2-title {
+    font-size: 32px;
+  }
+
+  .p5-title {
+    font-size: 30px;
+  }
+
+  /* 3. 테스트 선택지: 휴대폰 2열, 사진 안 이름 글자 15px */
+  .p2-options {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .p2-opt-label {
+    left: 10px;
+    right: 10px;
+    bottom: 12px;
+    font-size: 15px;
+  }
+}

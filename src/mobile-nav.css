@@ -1,0 +1,144 @@
+/*
+ * 태블릿·모바일 햄버거 메뉴 — 2026-11-16 답변 기준 (docs/interaction.md 7장)
+ * 기준: mobile-interaction.css와 같음 (화면 폭 1023px 이하 이거나 터치 기기)
+ * 계획 문서 5장: "햄버거 메뉴, 오른쪽에서 밀려 나옴"
+ * Header.jsx에 새로 추가한 요소(.gnb-m, .gnb-drawer-wrap)만 다루고, 기존 규칙은 고치지 않아요.
+ */
+
+/* 데스크톱: 새로 추가한 요소는 보이지 않음 (기존 화면 그대로) */
+.gnb-m,
+.gnb-drawer-wrap {
+  display: none;
+}
+
+@media (max-width: 1023px), (hover: none) and (pointer: coarse) {
+  /* 헤더: 로고 — [장바구니 ①] [☰] */
+  .gnb-inner {
+    flex-wrap: nowrap;
+  }
+
+  .gnb-menu {
+    display: none;
+  }
+
+  .gnb-m {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 15px;
+    font-weight: 500;
+  }
+
+  .gnb-burger {
+    width: 44px;
+    height: 44px;
+    margin-right: -10px;
+    border: 0;
+    border-radius: 999px;
+    background: transparent;
+    color: var(--ink);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: var(--cursor-pointer);
+  }
+
+  /* 오른쪽에서 밀려 나오는 메뉴: 화면 80%(최대 360px) 크림 패널 + 뒤 반투명 차콜 */
+  .gnb-drawer-wrap {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    pointer-events: none;
+  }
+
+  .gnb-drawer-wrap.is-open {
+    pointer-events: auto;
+  }
+
+  .gnb-scrim {
+    position: absolute;
+    inset: 0;
+    background: rgba(46, 42, 38, 0.4);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .gnb-drawer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: min(80vw, 360px);
+    background: var(--surface-cream);
+    box-shadow: -12px 0 32px -16px rgba(46, 42, 38, 0.35);
+    padding: 18px 24px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    overflow-y: auto;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+  }
+
+  .gnb-drawer-wrap.is-open .gnb-scrim {
+    opacity: 1;
+  }
+
+  .gnb-drawer-wrap.is-open .gnb-drawer {
+    transform: none;
+  }
+
+  .gnb-drawer-head {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .gnb-drawer-close {
+    width: 44px;
+    height: 44px;
+    margin-right: -10px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--ink);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: var(--cursor-pointer);
+  }
+
+  .gnb-drawer-nav {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .gnb-drawer-link {
+    display: flex;
+    align-items: center;
+    min-height: 64px;
+    border-bottom: 1px solid var(--line);
+    font-family: var(--font-display);
+    font-size: 24px;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .gnb-drawer-link:hover {
+    color: var(--ink);
+  }
+
+  /* 현재 메뉴 표시: 상단 메뉴와 같은 세이지 딥 */
+  .gnb-drawer-link.is-current,
+  .gnb-drawer-link.is-current:hover {
+    color: var(--sage-deep);
+  }
+
+  .gnb-burger:focus-visible,
+  .gnb-drawer-close:focus-visible,
+  .gnb-drawer-link:focus-visible {
+    outline: 2px solid var(--sage-deep);
+    outline-offset: 3px;
+  }
+}

@@ -1,0 +1,197 @@
+/*
+ * 태블릿·모바일 전용 인터랙션 조정 — docs/interaction.md 정리표 기준
+ * 기준: 화면 폭 1023px 이하 이거나 터치 기기(마우스 올림 없음 + 굵은 포인터) = 태블릿·모바일
+ *       그 밖(1024px 이상 + 마우스) = 데스크톱(변경 없음). 가로로 놓은 태블릿도 터치 기기로 포함돼요.
+ * 기존 규칙은 고치지 않고, 이 파일에서 덮어쓰기만 해요. (main.jsx에서 가장 마지막에 불러옴)
+ * 기울어짐·끌림처럼 JS가 style 속성으로 직접 움직이는 효과는 !important로만 덮을 수 있어서 그곳에만 썼어요.
+ */
+
+@media (max-width: 1023px), (hover: none) and (pointer: coarse) {
+  /* ───────── 제거 ───────── */
+
+  /* 1. 숨결 점 (커서를 따라오는 살구 점) */
+  .cursor-dot {
+    display: none;
+  }
+
+  /* 35. 둥근 마우스 포인터 이미지 → 기본 포인터 */
+  :root {
+    --cursor-default: auto;
+    --cursor-pointer: pointer;
+  }
+
+  /* 5. 메뉴·푸터·테스트 헤더 링크 마우스 올림 (현재 메뉴 표시는 그대로) */
+  .gnb-link:not(.is-current):hover {
+    color: var(--ink);
+  }
+
+  .ftr-nav a:hover {
+    color: var(--ink);
+  }
+
+  .tgnb-back:hover,
+  .tgnb-close:hover {
+    background: transparent;
+    color: var(--ink);
+  }
+
+  /* 8. 유리 글 상자 빛 (Spotlight) */
+  .spotlight-glow {
+    display: none;
+  }
+
+  /* 10·19·32·29. 카드 기울어짐·떠오름 (Tilt) + 마우스 올림 그림자 */
+  .p1-card,
+  .p2r-card,
+  .p5-card,
+  .p4c-card {
+    transform: none !important;
+  }
+
+  .p1-card:hover,
+  .p2r-card:hover {
+    box-shadow: none;
+  }
+
+  /* 13. 장면 카드 마우스 올림 떠오름 (선택 테두리·체크·물결은 그대로) */
+  .p2-opt:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  /* 20. 향 사진 1.05배 확대 */
+  .photo-zoom-host:hover .photo-zoom > img,
+  .photo-zoom-host:hover .photo-zoom.photo > img {
+    transform: none;
+  }
+
+  /* 25. 담기 버튼 끌림 (Magnet) — 담기 막대, 구매 영역 '장바구니 담기' */
+  .p3-addbar-wrap > div,
+  .p3-buy-actions > div > div {
+    transform: none !important;
+  }
+
+  /* 마우스 전용 효과 비활성화(절대 규칙): 향 소개 카드 마우스 올림 떠오름·그림자 */
+  .p3-card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  /* 정리표 외 마우스 올림 효과 — 모두 제거 (질문 4 답변). 선택된 탭·펼친 FAQ 같은 상태 표시는 그대로 */
+  .p3-tab:not(.is-on):hover {
+    color: var(--ink-muted);
+  }
+
+  .p2r-textlink:hover {
+    color: var(--ink);
+  }
+
+  .p6-faq-q:hover {
+    background: transparent;
+  }
+
+  .p4-del:hover {
+    background: transparent;
+  }
+
+  .qty .icon-btn:hover,
+  .qty-linen .icon-btn:hover {
+    background: transparent;
+  }
+
+  .p3-addbar:not(.is-added):hover {
+    background: rgba(255, 255, 255, 0.6);
+  }
+
+  a:hover {
+    color: var(--ink);
+  }
+
+  /* ───────── 축소 ───────── */
+
+  /* 6. 주요 버튼: 마우스 올림 색은 빼고, 누를 때 0.98배(:active)는 그대로 */
+  .btn:hover {
+    background: var(--ink);
+    color: var(--on-ink);
+  }
+
+  /* 담은 뒤 1.5초 '담았어요'(.is-added, 26번 유지)는 건드리지 않음 */
+  .btn-ghost:not(.is-added):hover,
+  .on-linen .btn-ghost:not(.is-added):hover,
+  .btn-ghost.on-linen:not(.is-added):hover,
+  .p4c-panel .btn-ghost:not(.is-added):hover,
+  .p6-last .btn-ghost:not(.is-added):hover {
+    background: transparent;
+    color: var(--ink);
+  }
+
+  /* 16. 결과 전환 1.5초 → 1초: Result.jsx에 태블릿·모바일 전용 타이머를 추가해 처리 */
+
+  /* 17. 결과가 순서대로 떠오름: 간격 절반 (0~0.68초 → 0~0.34초, 순서는 그대로) */
+  .p2r-section > :nth-child(2) {
+    animation-delay: 0.06s;
+  }
+
+  .p2r-section > :nth-child(3) {
+    animation-delay: 0.14s;
+  }
+
+  .p2r-section > :nth-child(4) > :nth-child(1) {
+    animation-delay: 0.22s;
+  }
+
+  .p2r-section > :nth-child(4) > :nth-child(2) {
+    animation-delay: 0.27s;
+  }
+
+  .p2r-section > :nth-child(5) {
+    animation-delay: 0.34s;
+  }
+
+  /* 18. 1위 배지도 같이 절반으로 (0.62초 → 0.31초) — 2026-11-16 답변 */
+  .p2r-rank-pop {
+    animation-delay: 0.31s;
+  }
+
+  /* 24. 장바구니 담기 막대: 올라오는 동작 없이 항상 표시 */
+  .p3-addbar {
+    transform: none;
+  }
+
+  /* 30. 주문 완료 등장: 이미지 튀어 오름은 그대로, 나머지 간격 절반 (0.15/0.25/0.38/0.5 → 0.08/0.13/0.19/0.25초) */
+  .p4d-head > h1 {
+    animation-delay: 0.08s;
+  }
+
+  .p4d-head > .lead {
+    animation-delay: 0.13s;
+  }
+
+  .p4d-box {
+    animation-delay: 0.19s;
+  }
+
+  .p4d-section > .btn {
+    animation-delay: 0.25s;
+  }
+
+  /* 31. 브랜드 소개 스크롤 장면: 구간 절반 960px → 480px, 장면마다 320px → 160px
+     장면 표시 위치(top)는 Brand.jsx가 style로 정해서 !important로 덮음
+     태블릿에서는 그림과 버튼이 480px보다 커질 수 있어, 아래 섹션과 겹치지 않도록 높이는 최소 480px로 둠 */
+  .p5-scroll {
+    height: auto;
+    min-height: 480px;
+  }
+
+  .p5-mark {
+    height: 160px;
+  }
+
+  .p5-mark:nth-child(2) {
+    top: 160px !important;
+  }
+
+  .p5-mark:nth-child(3) {
+    top: 320px !important;
+  }
+}
