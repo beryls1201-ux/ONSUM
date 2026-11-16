@@ -381,6 +381,22 @@ textarea.input {
   line-height: 1.6;
 }
 
+/* 드롭다운: 기본 화살표 대신 오른쪽 16px 안쪽에 가는 화살표 (2026-11-16) */
+select.input {
+  appearance: none;
+  -webkit-appearance: none;
+  padding-right: 44px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none' stroke='%232E2A26' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 6l4 4 4-4'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: 16px 16px;
+  cursor: var(--cursor-pointer);
+}
+
+select.input::-ms-expand {
+  display: none;
+}
+
 .input::placeholder {
   color: #7a7168;
 }

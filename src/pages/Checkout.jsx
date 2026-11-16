@@ -33,7 +33,7 @@ function AddressDialog({ initial, onClose, onDone }) {
         </h2>
         <div className="field">
           <label htmlFor="addr-q">도로명 또는 지번 주소</label>
-          <input ref={ref} id="addr-q" className="input" type="text" value={v} onChange={(e) => setV(e.target.value)} />
+          <input ref={ref} id="addr-q" className="input" type="text" placeholder="예: 서울시 마포구 온숨로 12" value={v} onChange={(e) => setV(e.target.value)} />
         </div>
         <div className="p4c-dialog-actions">
           <button type="button" className="btn-ghost btn-xs" onClick={onClose}>
@@ -87,9 +87,11 @@ export default function Checkout() {
   const okName = f.name.trim().length > 0
   const okPhone = /^01[0-9]{8,9}$/.test(f.phone.replace(/[^0-9]/g, ''))
   const okPw = /^[0-9]{4}$/.test(f.pw) // 주문 비밀번호: 숫자 4자리 (미정 2-14 승인안)
+  const okTo = f.to.trim().length > 0
+  const okAddr = f.addr.trim().length > 0
   const okDetail = f.detail.trim().length > 0
   const okAgree = f.agree1 && f.agree2
-  const ready = okName && okPhone && okPw && okDetail && okAgree
+  const ready = okName && okPhone && okPw && okTo && okAddr && okDetail && okAgree
 
   const pay = () => {
     setTried(true)
@@ -175,13 +177,18 @@ export default function Checkout() {
 
           {/* P4-S3 결제: 주문자 정보 */}
           <section aria-labelledby="buyer-title" className="p4c-panel">
-            <h2 id="buyer-title" className="p4c-panel-title">
-              주문자 정보
-            </h2>
+            <div className="p4c-panel-head">
+              <h2 id="buyer-title" className="p4c-panel-title">
+                주문자 정보
+              </h2>
+              <p className="p4c-req-note">
+                <span className="req-mark" aria-hidden="true">✱</span> 표시는 꼭 적어 주세요
+              </p>
+            </div>
             <div className="p4c-grid">
               <div className="field">
-                <label htmlFor="f-name">주문자 이름</label>
-                <input id="f-name" className={errCls(okName)} type="text" value={f.name} onChange={set('name')} autoComplete="name" />
+                <label htmlFor="f-name">주문자 이름 <span className="req-mark" aria-hidden="true">✱</span></label>
+                <input id="f-name" className={errCls(okName)} type="text" placeholder="예: 김온숨" aria-required="true" value={f.name} onChange={set('name')} autoComplete="name" />
                 {tried && !okName && (
                   <p role="alert" className="notice notice-err notice-sm">
                     주문자 이름을 적어 주세요.
@@ -189,8 +196,8 @@ export default function Checkout() {
                 )}
               </div>
               <div className="field">
-                <label htmlFor="f-phone">연락처</label>
-                <input id="f-phone" className={errCls(okPhone)} type="tel" inputMode="numeric" placeholder="010" value={f.phone} onChange={set('phone')} autoComplete="tel" />
+                <label htmlFor="f-phone">연락처 <span className="req-mark" aria-hidden="true">✱</span></label>
+                <input id="f-phone" className={errCls(okPhone)} type="tel" inputMode="numeric" placeholder="예: 010-1234-5678" aria-required="true" value={f.phone} onChange={set('phone')} autoComplete="tel" />
                 {tried && !okPhone && (
                   <p role="alert" className="notice notice-err notice-sm">
                     휴대전화 번호를 다시 확인해 주세요.
@@ -198,8 +205,8 @@ export default function Checkout() {
                 )}
               </div>
               <div className="field">
-                <label htmlFor="f-pw">주문 비밀번호</label>
-                <input id="f-pw" className={errCls(okPw)} type="password" inputMode="numeric" maxLength={4} value={f.pw} onChange={set('pw')} autoComplete="new-password" />
+                <label htmlFor="f-pw">주문 비밀번호 <span className="req-mark" aria-hidden="true">✱</span></label>
+                <input id="f-pw" className={errCls(okPw)} type="password" inputMode="numeric" maxLength={4} placeholder="숫자 4자리" aria-required="true" value={f.pw} onChange={set('pw')} autoComplete="new-password" />
                 {tried && !okPw ? (
                   <p role="alert" className="notice notice-err notice-sm">
                     주문 비밀번호는 숫자 4자리로 정해 주세요.
@@ -216,38 +223,52 @@ export default function Checkout() {
             <h2 id="ship-title" className="p4c-panel-title">
               배송지 정보
             </h2>
-            <div className="field p4c-narrow">
-              <label htmlFor="f-to">받는 분</label>
-              <input id="f-to" className="input" type="text" value={f.to} onChange={set('to')} />
+            <div className="p4c-grid p4c-grid-fill">
+              <div className="field">
+                <label htmlFor="f-to">받는 분 <span className="req-mark" aria-hidden="true">✱</span></label>
+                <input id="f-to" className={errCls(okTo)} type="text" placeholder="예: 김온숨" aria-required="true" value={f.to} onChange={set('to')} />
+                {tried && !okTo && (
+                  <p role="alert" className="notice notice-err notice-sm">
+                    받는 분 이름을 적어 주세요.
+                  </p>
+                )}
+              </div>
             </div>
             <div className="field">
-              <label htmlFor="f-addr">주소</label>
+              <label htmlFor="f-addr">주소 <span className="req-mark" aria-hidden="true">✱</span></label>
               <div className="p4c-addr">
-                <input id="f-addr" className="input" type="text" value={f.addr} onChange={set('addr')} autoComplete="street-address" />
+                <input id="f-addr" className={errCls(okAddr)} type="text" placeholder="예: 서울시 마포구 온숨로 12" aria-required="true" value={f.addr} onChange={set('addr')} autoComplete="street-address" />
                 <button type="button" className="btn-ghost p4c-addr-btn" onClick={() => setAddrOpen(true)}>
                   주소 검색
                 </button>
               </div>
+              {tried && !okAddr && (
+                <p role="alert" className="notice notice-err notice-sm">
+                  주소를 적거나 검색해 주세요.
+                </p>
+              )}
             </div>
             <div className="field">
-              <label htmlFor="f-detail">상세 주소</label>
-              <input id="f-detail" className={errCls(okDetail)} type="text" value={f.detail} onChange={set('detail')} />
+              <label htmlFor="f-detail">상세 주소 <span className="req-mark" aria-hidden="true">✱</span></label>
+              <input id="f-detail" className={errCls(okDetail)} type="text" placeholder="예: 3층 301호" aria-required="true" value={f.detail} onChange={set('detail')} />
               {tried && !okDetail && (
                 <p role="alert" className="notice notice-err notice-sm">
                   상세 주소까지 적어 주세요.
                 </p>
               )}
             </div>
-            <div className="field p4c-narrow">
-              <label htmlFor="f-memo">배송 메모</label>
-              <select id="f-memo" className="input" value={f.memo} onChange={set('memo')}>
-                <option value="">골라 주세요</option>
-                {MEMOS.map((m) => (
-                  <option key={m} value={m}>
-                    {m}
-                  </option>
-                ))}
-              </select>
+            <div className="p4c-grid p4c-grid-fill">
+              <div className="field">
+                <label htmlFor="f-memo">배송 메모</label>
+                <select id="f-memo" className="input" value={f.memo} onChange={set('memo')}>
+                  <option value="">골라 주세요</option>
+                  {MEMOS.map((m) => (
+                    <option key={m} value={m}>
+                      {m}
+                    </option>
+                  ))}
+                </select>
+              </div>
             </div>
           </section>
 

@@ -418,3 +418,29 @@
   justify-content: flex-end;
   gap: 8px;
 }
+
+/* 필수 입력 표시 (2026-11-16) */
+.p4c-panel-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px 16px;
+}
+
+.p4c-req-note {
+  margin: 0;
+  font-size: 13px;
+  color: var(--ink-muted);
+}
+
+.req-mark {
+  color: var(--sage-deep);
+  font-size: 0.85em;
+  font-weight: 700;
+}
+
+/* 받는 분·배송 메모: 주문자 정보 입력칸과 같은 폭 (같은 격자에서 한 칸만 차지) (2026-11-16) */
+.p4c-grid-fill {
+  grid-template-columns: repeat(auto-fill, minmax(min(240px, 100%), 1fr));
+}
