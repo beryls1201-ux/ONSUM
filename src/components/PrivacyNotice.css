@@ -1,0 +1,60 @@
+/* 개인정보 수집·이용 동의 전문 (펼침형) */
+.privacy {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--ink-muted);
+}
+
+.privacy-summary {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: var(--cursor-pointer);
+  list-style: none;
+}
+
+.privacy-summary::-webkit-details-marker {
+  display: none;
+}
+
+.privacy-summary:focus-visible {
+  outline: 2px solid var(--sage-deep);
+  outline-offset: 3px;
+}
+
+.privacy[open] .privacy-summary {
+  color: var(--sage-deep);
+}
+
+.privacy-body {
+  margin: 8px 0 0;
+  padding: 14px 16px;
+  border-radius: 8px;
+  background: var(--surface-cream);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.privacy-body > div {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 8px;
+}
+
+.privacy-body dt {
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.privacy-body dd {
+  margin: 0;
+}
+
+.privacy-note {
+  margin: 8px 0 0;
+  font-size: 12px;
+}

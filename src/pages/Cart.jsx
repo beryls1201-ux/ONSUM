@@ -45,7 +45,7 @@ export default function Cart() {
             <Photo id="IMG-P4-01" className="p4-empty-img" fallback="linear-gradient(160deg, #F1E3CF 0%, #E0C9AA 100%)" label=" " />
             <div className="p4-empty-text">
               <p className="h3">장바구니가 비어 있어요</p>
-              <p>네 가지 질문으로 어울리는 향을 찾거나, 12가지 향을 직접 둘러보세요.</p>
+              <p>네 가지 질문으로 나에게 맞는 향을 찾거나, 12가지 향을 천천히 둘러보세요.</p>
             </div>
             <div className="p4-empty-actions">
               <Link to="/#choose" className="btn">
@@ -133,10 +133,10 @@ export default function Cart() {
                   </span>
                 </div>
               </div>
-              <p className="p4-summary-help">주문할 향의 왼쪽 선택란을 눌러주세요.</p>
+              <p className="p4-summary-help">주문할 향은 왼쪽 선택란을 눌러 골라 주세요.</p>
               {err && selCount === 0 && (
                 <p role="alert" className="notice notice-chk notice-sm14">
-                  주문할 상품을 하나 이상 선택해주세요.
+                  주문할 향을 하나 이상 골라 주세요.
                 </p>
               )}
               <div className="p4-summary-actions">

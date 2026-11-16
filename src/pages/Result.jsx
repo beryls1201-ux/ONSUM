@@ -80,7 +80,7 @@ export default function Result() {
 
   const copy = () => {
     const ok = () => say('추천 결과 링크를 복사했어요.', 'ok')
-    const fail = () => say('링크를 복사하지 못했어요. 다시 시도해주세요.', 'err')
+    const fail = () => say('링크를 복사하지 못했어요. 한 번 더 눌러 주세요.', 'err')
     try {
       if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(window.location.href).then(ok, fail)
       else fail()
@@ -112,7 +112,7 @@ export default function Result() {
               <h1 id="result-title" className="h1">
                 당신의 취향과 닮은 향 3가지
               </h1>
-              <p className="lead">네 가지 답변에 담긴 분위기와 어울리는 향을 1위부터 3위까지 추천해드려요.</p>
+              <p className="lead">고른 장면에 담긴 분위기를 따라 어울리는 향 세 가지를 골랐어요.</p>
             </div>
 
             {/* 나의 향 이야기 */}

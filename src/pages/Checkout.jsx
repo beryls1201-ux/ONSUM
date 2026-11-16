@@ -3,6 +3,7 @@ import { Navigate, useNavigate } from 'react-router-dom'
 import Dot from '../components/Dot.jsx'
 import Photo from '../components/Photo.jsx'
 import Tilt from '../components/Tilt.jsx'
+import PrivacyNotice from '../components/PrivacyNotice.jsx'
 import { img } from '../data/images.js'
 import { PRICE, WRAP_FEE, getScent, scentNotes, scentTitle, won } from '../data/scents.js'
 import { useStore } from '../store/StoreContext.jsx'
@@ -11,7 +12,7 @@ import './Checkout.css'
 
 const PAYS = ['신용카드', '계좌이체', '간편결제']
 // 배송 메모 선택지 (미정 2-12 승인안)
-const MEMOS = ['문 앞에 놓아주세요', '경비실에 맡겨주세요', '택배함에 넣어주세요', '배송 전 연락 부탁드려요']
+const MEMOS = ['문 앞에 놓아 주세요', '경비실에 맡겨 주세요', '택배함에 넣어 주세요', '배송 전 연락 부탁드려요']
 const MSG_EXAMPLE = '당신의 하루에도 따뜻한 쉼이 머물기를.'
 
 // 주소 검색: 외부 서비스 없이 화면 안 팝업에서 직접 입력 (미정 2-13 승인안)
@@ -183,7 +184,7 @@ export default function Checkout() {
                 <input id="f-name" className={errCls(okName)} type="text" value={f.name} onChange={set('name')} autoComplete="name" />
                 {tried && !okName && (
                   <p role="alert" className="notice notice-err notice-sm">
-                    주문자 이름을 입력해주세요.
+                    주문자 이름을 적어 주세요.
                   </p>
                 )}
               </div>
@@ -192,7 +193,7 @@ export default function Checkout() {
                 <input id="f-phone" className={errCls(okPhone)} type="tel" inputMode="numeric" placeholder="010" value={f.phone} onChange={set('phone')} autoComplete="tel" />
                 {tried && !okPhone && (
                   <p role="alert" className="notice notice-err notice-sm">
-                    휴대전화 번호를 확인해주세요.
+                    휴대전화 번호를 다시 확인해 주세요.
                   </p>
                 )}
               </div>
@@ -201,10 +202,10 @@ export default function Checkout() {
                 <input id="f-pw" className={errCls(okPw)} type="password" inputMode="numeric" maxLength={4} value={f.pw} onChange={set('pw')} autoComplete="new-password" />
                 {tried && !okPw ? (
                   <p role="alert" className="notice notice-err notice-sm">
-                    주문 비밀번호는 숫자 4자리로 입력해주세요.
+                    주문 비밀번호는 숫자 4자리로 정해 주세요.
                   </p>
                 ) : (
-                  <p className="p4c-help">비회원 주문 조회에 쓰여요.</p>
+                  <p className="p4c-help">나중에 주문을 조회할 때 필요해요.</p>
                 )}
               </div>
             </div>
@@ -233,14 +234,14 @@ export default function Checkout() {
               <input id="f-detail" className={errCls(okDetail)} type="text" value={f.detail} onChange={set('detail')} />
               {tried && !okDetail && (
                 <p role="alert" className="notice notice-err notice-sm">
-                  배송지의 상세 주소를 입력해주세요.
+                  상세 주소까지 적어 주세요.
                 </p>
               )}
             </div>
             <div className="field p4c-narrow">
               <label htmlFor="f-memo">배송 메모</label>
               <select id="f-memo" className="input" value={f.memo} onChange={set('memo')}>
-                <option value="">선택해주세요</option>
+                <option value="">골라 주세요</option>
                 {MEMOS.map((m) => (
                   <option key={m} value={m}>
                     {m}
@@ -270,13 +271,14 @@ export default function Checkout() {
                   개인정보 수집·이용 동의 <span className="req">(필수)</span>
                 </span>
               </label>
+              <PrivacyNotice type="order" />
               <label className="check">
                 <input type="checkbox" checked={f.agree2} onChange={toggle('agree2')} />
                 <span>주문 내용을 확인했으며 결제에 동의합니다</span>
               </label>
               {tried && !okAgree && (
                 <p role="alert" className="notice notice-err notice-sm" style={{ marginTop: 4 }}>
-                  필수 동의 항목을 확인해주세요.
+                  필수 동의 항목에 체크해 주세요.
                 </p>
               )}
             </div>
@@ -322,7 +324,7 @@ export default function Checkout() {
               </dd>
             </div>
           </dl>
-          <p className="p4-summary-help p4c-help13">배송비를 포함한 최종 금액을 확인한 뒤 결제해주세요.</p>
+          <p className="p4-summary-help p4c-help13">배송비까지 포함한 최종 금액을 확인해 주세요.</p>
           <button type="button" className="btn btn-block" onClick={pay}>
             결제하기
           </button>

@@ -91,9 +91,9 @@ export default function Brand() {
               장면으로 만나는 향
             </h2>
             <p className="p5-body">
-              낯선 향료 이름보다 좋아하는 장면에서 시작해보세요.
+              어려운 향료 이름 대신, 좋아하는 장면부터 떠올려 보세요.
               <br />
-              네 가지 질문에 답하면 취향과 어울리는 향 3가지를 추천해드려요.
+              네 가지 질문에 답하면 나와 어울리는 향 3가지를 추천해 드려요.
               <br />
               직접 고르고 싶다면 계절별 향 소개에서 주요 노트와 분위기를 살펴보세요.
               <br />
@@ -157,7 +157,7 @@ export default function Brand() {
               향에 마음을 더해 전하세요
             </h2>
             <p className="p5-body">
-              선물받을 사람이 좋아할 장면을 떠올리며 향을 골라보세요.
+              선물받을 사람이 좋아할 장면을 떠올리며 향을 골라 보세요.
               <br />
               향의 이름·주요 노트·장면을 담은 무료 메시지 카드에
               <br />
@@ -176,7 +176,7 @@ export default function Brand() {
           <Tilt as="article" max={4} className="p5-card">
             <div className="p5-card-head">
               <h2 className="h3">향 찾기</h2>
-              <p>네 가지 질문에 답하면 취향과 어울리는 향 3가지를 추천해드려요.</p>
+              <p>네 가지 질문에 답하면 나와 어울리는 향 3가지를 추천해 드려요.</p>
             </div>
             <ol aria-label="진행 순서" className="p5-card-steps">
               {STEPS.map((s, i) => (

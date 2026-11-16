@@ -125,13 +125,13 @@ function ProductsView() {
   }
 
   const addSelected = () => {
-    if (!s) return say('구매할 향을 먼저 선택해주세요.', 'chk')
+    if (!s) return say('먼저 마음에 드는 향을 골라 주세요.', 'chk')
     add(s.id, qty)
     flashBuy()
   }
 
   const buy = () => {
-    if (!s) return say('구매할 향을 먼저 선택해주세요.', 'chk')
+    if (!s) return say('먼저 마음에 드는 향을 골라 주세요.', 'chk')
     startCheckout({ items: [{ id: s.id, qty }], gift, fromCart: false })
     navigate('/checkout')
   }
@@ -144,8 +144,8 @@ function ProductsView() {
           <aside aria-label="향 찾기 테스트 안내" className="p3-banner">
             <Photo id="IMG-P3-01" className="p3-banner-img" fallback="linear-gradient(160deg, #E8D6BC 0%, #D7BE9E 100%)" label="IMG-P3-01" />
             <div className="p3-banner-text">
-              <p className="h4">어떤 향을 고를지 고민되나요?</p>
-              <p className="p3-banner-sub">일상의 장면을 묻는 네 가지 질문에 답하고, 취향에 어울리는 향 3가지를 만나보세요.</p>
+              <p className="h4">어떤 향이 좋을지 망설여진다면</p>
+              <p className="p3-banner-sub">네 가지 장면에 답하고, 나와 어울리는 향 3가지를 만나 보세요.</p>
             </div>
             <Link to="/#choose" className="btn p3-banner-btn">
               <span>내 향 찾기</span>
@@ -161,7 +161,7 @@ function ProductsView() {
           <p className="lead">
             봄·여름·가을·겨울의 아침·낮·밤을 담은 12가지 향이에요.
             <br />
-            계절을 고른 뒤, 마음에 드는 향을 선택하면 아래에서 수량과 가격을 확인할 수 있어요.
+            계절을 고르고 마음에 드는 향을 눌러 보세요. 수량과 가격은 아래에서 볼 수 있어요.
           </p>
         </div>
 
@@ -240,7 +240,7 @@ function ProductsView() {
               </div>
             </div>
           ) : (
-            <p className="p3-buy-empty">위에서 마음에 드는 향을 선택해주세요.</p>
+            <p className="p3-buy-empty">위에서 마음에 드는 향을 골라 주세요.</p>
           )}
           <Qty value={qty} onChange={setQty} />
           <div className="p3-buy-total">

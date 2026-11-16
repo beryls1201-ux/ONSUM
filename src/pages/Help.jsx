@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import Dot from '../components/Dot.jsx'
 import Icon from '../components/Icon.jsx'
+import PrivacyNotice from '../components/PrivacyNotice.jsx'
 import { getScent, scentTitle, won } from '../data/scents.js'
 import { useStore } from '../store/StoreContext.jsx'
 import './Help.css'
@@ -9,28 +10,28 @@ import './Help.css'
 const FAQS = [
   [
     '주문과 배송 현황은 어디서 확인하나요?',
-    '화면 하단의 ‘비회원 주문 조회’에서 주문번호와 주문 시 설정한 비밀번호를 입력해주세요.\n결제·출고 상태를 확인할 수 있으며, 운송장이 등록되면 배송 정보를 확인할 수 있어요.\n주문번호를 찾기 어렵거나 배송 일정이 궁금하다면 아래 문의 양식에 내용을 남겨주세요.',
+    '결제 후 1~2일 안에 출고되고, 받기까지 보통 2~3일 걸려요.\n화면 아래 ‘비회원 주문 조회’에 주문번호와 주문할 때 정한 비밀번호를 적으면 결제·출고 상태를 볼 수 있어요. 운송장이 등록되면 배송 정보도 함께 보여요.\n주문번호를 찾기 어렵거나 배송 일정이 궁금하다면 아래 문의 양식에 남겨 주세요.',
   ],
   [
     '교환·반품은 어떻게 신청하나요?',
-    '아래 문의 양식에서 ‘교환·반품’을 선택하고 주문번호, 상품명, 신청 사유를 남겨주세요.\n개봉·사용 여부와 상품 상태를 함께 알려주시면 신청 내용을 확인하는 데 도움이 됩니다.\n교환·반품 가능 여부와 절차, 비용은 상품 상태와 사유를 확인한 뒤 안내해드려요.',
+    '상품을 받은 날부터 7일 안에 아래 문의 양식에서 ‘교환·반품’을 골라 신청해 주세요.\n주문번호, 상품명, 신청 이유와 함께 개봉·사용 여부를 알려 주시면 더 빨리 확인할 수 있어요.\n단순 변심으로 인한 교환·반품은 왕복 배송비 6,000원이 들어요.',
   ],
   [
     '상품이 파손되거나 다른 상품이 왔어요.',
-    '받으신 상품과 포장 상태를 확인하고, 확인에 필요한 사진을 보관해주세요.\n문의 유형에서 ‘교환·반품’을 선택한 뒤 주문번호와 수령한 상품명, 파손·오배송 내용을 남겨주세요.\n접수 내용을 확인한 뒤 필요한 후속 절차를 안내해드려요.',
+    '받은 상품과 포장 상태를 사진으로 남겨 주세요.\n문의 유형에서 ‘교환·반품’을 고른 뒤 주문번호, 받은 상품명, 파손·오배송 내용을 적어 주세요.\n파손·오배송은 배송비 없이 처리해 드려요.',
   ],
   [
     '선물 메시지 카드와 포장은 어떻게 선택하나요?',
-    '주문 단계에서 ‘선물로 보내기’를 켜고, 전하고 싶은 메시지를 최대 100자까지 입력해주세요.\n향의 이름·주요 노트·장면을 담은 메시지 카드는 무료예요.\n크라프트 상자와 향의 대표 색 리본 포장을 원하면 ‘선물 포장 추가’를 선택해주세요. 포장비는 3,000원이에요.',
+    '주문 단계에서 ‘선물로 보내기’를 켜고, 전하고 싶은 메시지를 최대 100자까지 적어 주세요.\n향의 이름·주요 노트·장면을 담은 메시지 카드는 무료예요.\n크라프트 상자와 향의 대표 색 리본 포장을 원하면 ‘선물 포장 추가’를 골라 주세요. 포장비는 3,000원이에요.',
   ],
 ]
 
 const TYPES = ['상품·향 추천', '주문·결제', '배송', '교환·반품', '선물 옵션']
 
 const INQ_MSG = {
-  missing: ['err', '문의 유형, 이름, 답변받을 연락처와 문의 내용을 입력해주세요.'],
-  agree: ['err', '필수 동의 항목을 확인해주세요.'],
-  ok: ['ok', '문의가 접수되었어요. 남겨주신 연락처로 답변드릴게요.'],
+  missing: ['err', '문의 유형, 이름, 답변받을 연락처, 문의 내용을 모두 적어 주세요.'],
+  agree: ['err', '필수 동의 항목에 체크해 주세요.'],
+  ok: ['ok', '문의가 잘 접수되었어요. 남겨 주신 연락처로 답변드릴게요.'],
 }
 
 // P6 고객 안내
@@ -107,9 +108,9 @@ export default function Help() {
             온숨에 문의하기
           </h2>
           <p className="lead">
-            상품·향 추천, 주문·결제, 배송, 교환·반품, 선물 옵션 중 문의 유형을 선택해주세요.
+            궁금한 내용에 맞는 문의 유형을 골라 주세요.
             <br />
-            답변받을 연락처나 이메일을 적고, 주문 관련 문의라면 주문번호를 함께 남겨주세요.
+            답변받을 연락처나 이메일을 적고, 주문 관련 문의라면 주문번호도 함께 남겨 주세요.
           </p>
         </div>
         <div className="p6-panel">
@@ -117,7 +118,7 @@ export default function Help() {
             <div className="field">
               <label htmlFor="q-type">문의 유형</label>
               <select id="q-type" className="input" value={q.type} onChange={setQField('type')}>
-                <option value="">선택해주세요</option>
+                <option value="">골라 주세요</option>
                 {TYPES.map((t) => (
                   <option key={t} value={t}>
                     {t}
@@ -155,6 +156,7 @@ export default function Help() {
               문의 보내기
             </button>
           </div>
+          <PrivacyNotice type="inquiry" />
           <p role="status" className={inq ? `notice notice-${INQ_MSG[inq][0]}` : 'p6-status-empty'}>
             {inq ? INQ_MSG[inq][1] : ''}
           </p>
@@ -168,9 +170,9 @@ export default function Help() {
             비회원 주문 조회
           </h2>
           <p className="lead">
-            주문 완료 화면의 주문번호와 주문 시 설정한 비밀번호를 입력해주세요.
+            주문 완료 화면의 주문번호와 주문할 때 정한 비밀번호를 적어 주세요.
             <br />
-            주문번호를 찾을 수 없다면 위 문의 양식으로 주문자 이름과 연락처를 알려주세요.
+            주문번호를 찾기 어렵다면 위 문의 양식으로 주문자 이름과 연락처를 알려 주세요.
           </p>
         </div>
         <div className="p6-panel">
@@ -189,7 +191,7 @@ export default function Help() {
           </div>
           {(lookState === 'empty' || lookState === 'fail') && (
             <p role="alert" className="notice notice-err">
-              {lookState === 'empty' ? '주문번호와 주문 비밀번호를 모두 입력해주세요.' : '일치하는 주문을 찾지 못했어요. 주문번호와 비밀번호를 다시 확인해주세요.'}
+              {lookState === 'empty' ? '주문번호와 주문 비밀번호를 모두 적어 주세요.' : '일치하는 주문을 찾지 못했어요. 주문번호와 비밀번호를 다시 확인해 주세요.'}
             </p>
           )}
           {lookState === 'found' && found && (

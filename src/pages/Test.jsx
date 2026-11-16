@@ -117,7 +117,7 @@ export default function Test() {
           <div className="p2-actions">
             {err && (
               <p role="alert" className="notice notice-chk">
-                가장 마음에 드는 장면 하나를 선택해주세요.
+                마음이 가는 장면을 하나 골라 주세요.
               </p>
             )}
             <div className="p2-buttons">

@@ -71,9 +71,9 @@ export default function Main() {
               나에게 닿는 향
             </h1>
             <p className="p1-glass-body">
-              일상의 장면을 묻는 네 가지 질문에 답해보세요.
+              오늘 하루를 떠올리며 네 가지 장면에 답해 보세요.
               <br />
-              온숨의 12가지 향 중 취향과 어울리는 3가지를 골라드려요.
+              온숨의 12가지 향 가운데 잘 어울리는 3가지를 골라 드려요.
               <br />
               나를 위한 향도, 소중한 사람에게 건넬 선물도 찾아보세요.
             </p>
@@ -114,7 +114,7 @@ export default function Main() {
           <h2 id="choose-title" className="h2">
             누구를 위한 향을 찾으시나요?
           </h2>
-          <p className="lead">직접 사용할 향인지, 선물할 향인지 선택하면 네 가지 질문이 시작돼요.</p>
+          <p className="lead">나를 위한 향인지, 누군가에게 건넬 향인지 골라 주세요. 바로 네 가지 질문이 시작돼요.</p>
         </div>
 
         <ol aria-label="진행 순서" className="p1-steps">
@@ -135,9 +135,9 @@ export default function Main() {
             <div className="p1-card-text">
               <h3 className="h3">나의 일상에 어울리는 향</h3>
               <p>
-                내가 좋아하는 일상의 장면을 골라주세요.
+                내가 좋아하는 일상의 장면을 골라 주세요.
                 <br />
-                답변에 담긴 분위기를 바탕으로 어울리는 향 3가지를 추천해드려요.
+                고른 장면의 분위기에 어울리는 향 3가지를 추천해 드려요.
               </p>
             </div>
             <div className="p1-card-cta">
@@ -153,9 +153,9 @@ export default function Main() {
             <div className="p1-card-text">
               <h3 className="h3">그 사람을 떠올리게 하는 향</h3>
               <p>
-                선물받을 사람이 좋아할 장면을 떠올리며 답해주세요.
+                선물받을 사람이 좋아할 장면을 떠올리며 답해 주세요.
                 <br />
-                어울리는 향을 고른 뒤 메시지 카드와 포장을 선택할 수 있어요.
+                향을 고른 뒤 메시지 카드와 포장도 함께 고를 수 있어요.
               </p>
             </div>
             <div className="p1-card-cta">

@@ -6,7 +6,7 @@ export const QUESTIONS = [
   {
     title: '하루를 마치고 방에 들어서면,\n가장 먼저 무엇을 하고 싶나요?',
     giftTitle: '그 사람은 하루를 마치고 방에 들어서면,\n가장 먼저 무엇을 하고 싶어 할까요?',
-    guide: '네 가지 장면 중 가장 끌리는 하나를 선택한 뒤 ‘다음 질문’을 눌러주세요.',
+    guide: '가장 마음이 가는 장면 하나를 고르고 ‘다음 질문’을 눌러 주세요.',
     kind: 'season',
     points: 2,
     options: [
@@ -19,7 +19,7 @@ export const QUESTIONS = [
   {
     title: '내 방이 가장 좋은 시간은',
     giftTitle: '그 사람의 방이 가장 좋은 시간은',
-    guide: '세 가지 장면 중 가장 끌리는 하나를 선택한 뒤 ‘다음 질문’을 눌러주세요.',
+    guide: '가장 마음이 가는 장면 하나를 고르고 ‘다음 질문’을 눌러 주세요.',
     kind: 'time',
     points: 3,
     options: [
@@ -31,7 +31,7 @@ export const QUESTIONS = [
   {
     title: '창밖으로 보고 싶은 풍경은',
     giftTitle: '그 사람이 창밖으로 보고 싶어 할 풍경은',
-    guide: '네 가지 장면 중 가장 끌리는 하나를 선택한 뒤 ‘다음 질문’을 눌러주세요.',
+    guide: '가장 마음이 가는 장면 하나를 고르고 ‘다음 질문’을 눌러 주세요.',
     kind: 'season',
     points: 2,
     options: [
@@ -44,7 +44,7 @@ export const QUESTIONS = [
   {
     title: '끌리는 향의 느낌은',
     giftTitle: '그 사람이 끌릴 향의 느낌은',
-    guide: '네 가지 장면 중 가장 끌리는 하나를 선택한 뒤 ‘추천 향 보기’를 눌러주세요.',
+    guide: '가장 마음이 가는 장면 하나를 고르고 ‘추천 향 보기’를 눌러 주세요.',
     kind: 'group',
     points: 3,
     options: [
