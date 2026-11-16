@@ -47,6 +47,21 @@
   .p5-title {
     font-size: 36px;
   }
+
+  /* 카드 제목 — 태블릿: 카드 30 / 결과 1위 34 / 향 카드·2·3위 28px (2026-11-16) */
+  .p1-card-text .h3,
+  .p5-card-head .h3 {
+    font-size: 30px;
+  }
+
+  .p2r-first-name {
+    font-size: 34px;
+  }
+
+  .p2r-card-name,
+  .p3-card-name {
+    font-size: 28px;
+  }
 }
 
 @media (max-width: 767px) {
@@ -76,6 +91,39 @@
     font-size: 30px;
   }
 
+  /* 카드 제목 — 휴대폰: 카드 28 / 결과 1위 30 / 향 카드·2·3위 24px, 카드 본문 15px (2026-11-16) */
+  .p1-card-text .h3,
+  .p5-card-head .h3 {
+    font-size: 28px;
+  }
+
+  .p2r-first-name {
+    font-size: 30px;
+  }
+
+  .p2r-card-name,
+  .p3-card-name {
+    font-size: 24px;
+  }
+
+  /* 카드 제목: 단어 단위로 줄바꿈하고 줄 길이를 고르게 */
+  .p1-card-text .h3,
+  .p5-card-head .h3,
+  .p2r-first-name,
+  .p2r-card-name,
+  .p3-card-name {
+    word-break: keep-all;
+    text-wrap: balance;
+  }
+
+  .p1-card-text p,
+  .p5-card-head p,
+  .p2r-first-line,
+  .p2r-card-line,
+  .p3-card-lines {
+    font-size: 15px;
+  }
+
   /* 3. 테스트 선택지: 휴대폰 2열, 사진 안 이름 글자 15px */
   .p2-options {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -87,5 +135,82 @@
     right: 10px;
     bottom: 12px;
     font-size: 15px;
+  }
+}
+
+/* 4. 태블릿·휴대폰: 한글을 띄어쓰기 단위로만 줄바꿈 (2026-11-16)
+   제목은 줄 길이를 고르게, 긴 주문번호·이메일처럼 띄어쓰기 없는 글은 넘치지 않게 끊음 */
+@media (max-width: 1023px), (hover: none) and (pointer: coarse) {
+  body {
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+  }
+
+  h1, h2, h3, h4,
+  .h1, .h2, .h3, .h4,
+  .p6-faq-q {
+    text-wrap: balance;
+  }
+}
+
+/* 5. 태블릿 폭(1023px 이하): 브랜드 장면 일러스트·선물 사진을 내용 폭에 꽉 채움 (2026-11-16)
+   비율(580:320)은 그대로라 높이도 함께 커짐 */
+@media (max-width: 1023px) {
+  .p5-illust,
+  .p5-gift-img {
+    flex-basis: 100%;
+    max-width: none;
+  }
+}
+
+/* 6. 태블릿·휴대폰: 브랜드 장면 썸네일 3개를 가로로 두고 위 큰 그림과 양쪽 끝을 맞춤 (2026-11-16) */
+@media (max-width: 1023px), (hover: none) and (pointer: coarse) {
+  .p5-steps {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: 100%;
+    max-width: 880px;
+  }
+
+  .p5-step {
+    min-width: 0;
+  }
+
+  .p5-step-thumb {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 180 / 100;
+  }
+
+  .p5-step-label {
+    text-align: center;
+  }
+}
+
+@media (max-width: 767px) {
+  .p5-steps {
+    gap: 8px;
+  }
+
+  .p5-step {
+    gap: 8px;
+    padding: 6px 6px 10px;
+    border-radius: 16px;
+  }
+
+  .p5-step-thumb {
+    border-radius: 10px;
+  }
+
+  .p5-step-label {
+    font-size: 13px;
+  }
+}
+
+/* 7. 휴대폰: 브랜드 '향 소개' 계절 색 점을 2열 × 2줄로 (점이 겹치지 않게) (2026-11-16) */
+@media (max-width: 767px) {
+  .p5-palette {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 16px;
   }
 }

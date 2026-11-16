@@ -22,14 +22,21 @@
     justify-content: center;
   }
 
-  /* 2. 메인 '진행 순서' 칩: 연결선은 숨기고 세로로 쌓아 가운데 */
+  /* 2. 메인 '진행 순서' 칩: 세로로 쌓아 가운데, 칩 3개는 같은 폭, 칩 사이에 12px 세로 연결선 (2026-11-16)
+     칩 폭은 글자 크기 기준(em)이라 글자가 줄면 폭도 함께 줄어듦 (15px일 때 약 320px) */
   .p1-steps {
+    display: flex;
     flex-direction: column;
     align-items: center;
   }
 
+  .p1-step {
+    width: min(100%, 21.4em);
+  }
+
   .p1-step-line {
-    display: none;
+    width: 1px;
+    height: 12px;
   }
 
   /* 3. 버튼 묶음 가운데 (버튼 크기는 그대로) */
