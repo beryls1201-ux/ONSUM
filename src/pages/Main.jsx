@@ -153,7 +153,7 @@ export default function Main() {
             <div className="p1-card-text">
               <h3 className="h3">그 사람을 떠올리게 하는 향</h3>
               <p>
-                선물받을 사람이 좋아할 장면을 떠올리며 답해 주세요.
+                선물 받을 사람이 좋아할 장면을 떠올리며 답해 주세요.
                 <br />
                 향을 고른 뒤 메시지 카드와 포장도 함께 고를 수 있어요.
               </p>

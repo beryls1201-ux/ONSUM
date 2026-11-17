@@ -51,7 +51,7 @@ export const QUESTIONS = [
       { label: '맑고 가벼운', img: 'IMG-Q4-1', value: 'clear', bg: '#D9E1DA' },
       { label: '꽃·과일처럼 환한', img: 'IMG-Q4-2', value: 'bright', bg: '#E9CDBF' },
       { label: '나무·차처럼 차분한', img: 'IMG-Q4-3', value: 'calm', bg: '#C9AE8A' },
-      { label: '포근하고 달큰한', img: 'IMG-Q4-4', value: 'cozy', bg: '#D8BFA8' },
+      { label: '포근하고 달큼한', img: 'IMG-Q4-4', value: 'cozy', bg: '#D8BFA8' },
     ],
   },
 ]

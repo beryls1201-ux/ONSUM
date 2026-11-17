@@ -8,7 +8,7 @@ export const MAX_QTY = 10
 export const SEASONS = ['봄', '여름', '가을', '겨울']
 export const TIMES = ['아침', '낮', '밤']
 
-// group: Q4 향의 결 (clear 맑고 가벼운 / bright 꽃·과일처럼 환한 / calm 나무·차처럼 차분한 / cozy 포근하고 달큰한)
+// group: Q4 향의 결 (clear 맑고 가벼운 / bright 꽃·과일처럼 환한 / calm 나무·차처럼 차분한 / cozy 포근하고 달큼한)
 export const SCENTS = [
   {
     id: 1, season: '봄', time: '아침', name: '창을 연 아침', notes: ['화이트티', '네롤리'], color: '#E8EDD5', img: 'IMG-SC-01', group: 'clear',
@@ -62,7 +62,7 @@ export const SCENTS = [
     id: 9, season: '가을', time: '밤', name: '무드등 독서', notes: ['앰버', '통카빈'], color: '#9C5B3C', img: 'IMG-SC-09', group: 'cozy',
     line: '포근하고 깊은 분위기 속에서 쉬고 싶다면.',
     desc: ['무드등 아래 책장을 넘기는 고요한 밤.', '포근하고 깊은 분위기로 하루를 마무리해요.'],
-    easy: [['앰버', '따뜻하고 달큰한 송진 향'], ['통카빈', '바닐라처럼 고소하고 달콤한 향']],
+    easy: [['앰버', '따뜻하고 달큼한 송진 향'], ['통카빈', '바닐라처럼 고소하고 달콤한 향']],
   },
   {
     id: 10, season: '겨울', time: '아침', name: '이불 속 5분', notes: ['화이트머스크', '코튼'], color: '#F4EEE3', img: 'IMG-SC-10', group: 'cozy',
@@ -74,7 +74,7 @@ export const SCENTS = [
     id: 11, season: '겨울', time: '낮', name: '귤 까는 오후', notes: ['시나몬', '오렌지'], color: '#C97B5A', img: 'IMG-SC-11', group: 'calm',
     line: '따뜻하고 상큼한 겨울 오후를 좋아한다면.',
     desc: ['담요 위에서 귤을 까는 느긋한 겨울 오후.', '따뜻하고 상큼한 분위기를 담았어요.'],
-    easy: [['시나몬', '따뜻하고 달큰한 계피 향'], ['오렌지', '달콤하고 상큼한 감귤 향']],
+    easy: [['시나몬', '따뜻하고 달큼한 계피 향'], ['오렌지', '달콤하고 상큼한 감귤 향']],
   },
   {
     id: 12, season: '겨울', time: '밤', name: '촛불 켠 밤', notes: ['바닐라', '샌달우드'], color: '#5A4034', img: 'IMG-SC-12', group: 'cozy',

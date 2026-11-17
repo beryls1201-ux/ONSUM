@@ -40,7 +40,7 @@ export default function Footer() {
           <p className="ftr-text">
             <strong>온숨</strong> · 취향을 발견하고, 향으로 마음을 전하세요.
             <br />
-            향 선택부터 주문 확인까지, 필요한 안내를 만나보세요.
+            향 선택부터 주문 확인까지, 필요한 안내를 만나 보세요.
           </p>
           <nav aria-label="고객 안내" className="ftr-nav">
             <Link to="/help#faq">배송·교환 안내</Link>
