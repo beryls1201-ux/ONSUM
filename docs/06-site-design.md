@@ -14,7 +14,7 @@
 | 디자인 토큰 (코드) | `src/index.css`의 `:root` |
 | 디자인 시안 (Claude Design 캔버스) | 'ONSUM 메인 디자인' — https://claude.ai/code/artifact/334db9c1-e1c2-4e25-833a-393979a7d802 |
 | 디자인 시스템 | 'ONSUM 디자인 시스템' — https://claude.ai/artifact/PVZRUYwL7vXNcjF7Cx9PTs · 파일 사본 `docs/design-system` |
-| 시안 내보내기 | `docs/html`, `docs/png` |
+| 시안 내보내기 | `docs/html`, `docs/assets/design` (PNG) |
 | 인터랙션 목록 · 모바일 처리 | `docs/interaction.md` |
 | 화면 문구 변경 목록 | `docs/copy-changes.md` |
 | 로고 | `src/assets/logo` (원본 `docs/assets/logo`) |
